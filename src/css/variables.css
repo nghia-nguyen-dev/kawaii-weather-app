@@ -11,4 +11,10 @@
 	--border-thick: 8px;
 	--border-md: 6px;
 	--border-sm: 4px;
+
+	--font-sm: 12px;
+	--font-md: 48px;
+	--font-lg: 341px;
+
+	--border-radius-md: 15px;
 }

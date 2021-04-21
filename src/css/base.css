@@ -1,4 +1,20 @@
 body {
-    background-color: var(--bg-color);
-    font-family: 'Proxima Soft';
+	background-color: var(--bg-color);
+	font-family: "Proxima Soft";
+}
+
+.App {
+	padding: 200px;
+}
+
+form {
+    position: relative;
+    width: max-content;
+}
+
+.SearchIcon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 20px;
 }
