@@ -1,4 +1,4 @@
-div {
-    font-size: 76px;
+body {
+    background-color: var(--bg-color);
     font-family: 'Proxima Soft';
 }
