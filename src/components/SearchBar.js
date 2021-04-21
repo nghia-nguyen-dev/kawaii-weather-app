@@ -7,16 +7,17 @@ const Input = styled.input`
 	font-family: "Proxima Soft";
 	color: var(--dark-blk);
 	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing-sm);
 
 
 	border: var(--border-md) solid var(--dark-blk);
 	border-radius: var(--border-radius-md);
 
-	padding: 18px 20px;
+	padding:18px 18px 17px;
 	width: 282px;
 
 	::placeholder {
-		font-size: 14px;
+		font-size: calc(var(--font-sm) + 2px);
 		color: #ADADAD;
 		text-transform: none;
 	}

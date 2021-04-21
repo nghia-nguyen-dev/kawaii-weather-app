@@ -15,6 +15,6 @@ form {
 .SearchIcon {
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translateY(-51%);
 	right: 20px;
 }
