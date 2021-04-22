@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    width: 220px;
 	position: relative;
 	border: var(--border-md);
 	border-radius: var(--border-radius-md);
-	padding: 18px 28px 15px;
+	padding: 19px 28px 15px;
 `;
 
 export default Container;

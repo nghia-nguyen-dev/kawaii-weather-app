@@ -18,3 +18,7 @@ form {
 	transform: translateY(-51%);
 	right: 26px;
 }
+
+.WeatherMetrics div {
+	margin-bottom: 12px;
+}

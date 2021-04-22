@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "components/WeatherMetrics/parts/Container";
 import Fill from "components/WeatherMetrics/parts/Fill";
 import SubHead from "components/WeatherMetrics/parts/SubHead";
