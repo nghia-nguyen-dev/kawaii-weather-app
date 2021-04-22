@@ -9,7 +9,7 @@
 	--dark-blk: #333333;
 
 	--border-thick: 8px;
-	--border-md: 6px;
+	--border-md: 6px solid var(--dark-blk);
 	--border-sm: 4px;
 
 	--font-sm: 12px;
@@ -18,5 +18,5 @@
 
 	--border-radius-md: 15px;
 
-	--letter-spacing-sm: .3px;
+	--letter-spacing-sm: .4px;
 }

@@ -8,10 +8,10 @@ const Input = styled.input`
 	letter-spacing: var(--letter-spacing-sm);
 
 
-	border: var(--border-md) solid var(--dark-blk);
+	border: var(--border-md);
 	border-radius: var(--border-radius-md);
 
-	padding:18px 18px 17px;
+	padding:18px 28px 16px;
 	width: 282px;
 
 	::placeholder {
