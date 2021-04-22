@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "components/SearchBar";
-import WeatherMetrics from "components/WeatherMetrics";
+import SearchBar from "components/SearchBar/SearchBar";
+import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 
 const App = () => {
 	return (

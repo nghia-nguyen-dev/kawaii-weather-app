@@ -1,6 +1,6 @@
 import React from "react";
-import SearchIcon from 'components/SearchIcon'
-import Input from "components/Input"
+import SearchIcon from 'components/SearchBar/SearchIcon'
+import Input from "components/SearchBar/Input"
 
 const SearchBar = () => {
 	return (

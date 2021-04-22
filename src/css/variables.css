@@ -6,7 +6,7 @@
 	--meter-color: #ffb66d;
 	--warm-white: #f9f1eb;
 	--red: #ff5a64;
-	--dark-blk: #333333;
+	--dark-blk: #3d3229;
 
 	--border-thick: 8px;
 	--border-md: 6px solid var(--dark-blk);
@@ -18,5 +18,5 @@
 
 	--border-radius-md: 15px;
 
-	--letter-spacing-sm: .4px;
+	--letter-spacing-sm: 0.4px;
 }
