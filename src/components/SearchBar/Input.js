@@ -7,16 +7,15 @@ const Input = styled.input`
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-sm);
 
-
 	border: var(--border-md);
-	border-radius: var(--border-radius-md);
+	border-radius: var(--radius-md);
 
-	padding:18px 28px 16px;
+	padding: 18px 28px 16px;
 	width: 282px;
 
 	::placeholder {
 		font-size: calc(var(--font-sm) + 2px);
-		color: #ADADAD;
+		color: #adadad;
 		text-transform: none;
 	}
 `;

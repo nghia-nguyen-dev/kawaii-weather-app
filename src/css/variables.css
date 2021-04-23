@@ -10,13 +10,14 @@
 
 	--border-thick: 8px;
 	--border-md: 6px solid var(--dark-blk);
-	--border-sm: 4px;
+	--border-sm: 4px solid var(--dark-blk);
 
 	--font-sm: 12px;
 	--font-md: 48px;
 	--font-lg: 341px;
 
-	--border-radius-md: 15px;
+	--radius-md: 15px;
+	--radius-sm: 4px;
 
 	--letter-spacing-sm: 0.4px;
 }
