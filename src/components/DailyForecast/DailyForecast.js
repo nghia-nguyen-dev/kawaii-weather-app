@@ -1,7 +1,28 @@
 import SubHead from "components/shared-parts/SubHead";
 import styled from "styled-components";
 
-const mockTemps = [76, 54, 31, 60, 67];
+const mockTemps = [
+	{
+		day: "MON",
+		temp: 76,
+	},
+	{
+		day: "TUE",
+		temp: 54,
+	},
+	{
+		day: "WED",
+		temp: 31,
+	},
+	{
+		day: "THU",
+		temp: 60,
+	},
+	{
+		day: "FRI",
+		temp: 67,
+	},
+];
 
 const Temp = styled.p`
 	color: var(--orange);
@@ -28,14 +49,16 @@ const config = {
 };
 
 const DailyForecast = () => {
-	return (
-		<UL>
-			<LI>
-				<SubHead config={config}>Mon</SubHead>
-				<Temp>76</Temp>
+	const renderedList = mockTemps.map(day => {
+		return (
+			<LI key={day.day}>
+				<SubHead config={config}>{day.day}</SubHead>
+				<Temp>{day.temp}</Temp>
 			</LI>
-		</UL>
-	);
+		);
+	});
+
+	return <UL>{renderedList}</UL>;
 };
 
 export default DailyForecast;

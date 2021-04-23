@@ -23,7 +23,7 @@ const BigTemp = styled.h1`
 	color: var(--orange);
 	letter-spacing: -8px;
 	font-size: 341px;
-
+	/* font-size: clamp(260px,22.2vw,341px); */
 	line-height: 257px;
 	text-align: right;
 `;

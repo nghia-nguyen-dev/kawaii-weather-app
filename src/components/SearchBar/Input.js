@@ -8,7 +8,7 @@ const Input = styled.input`
 	letter-spacing: var(--letter-spacing-sm);
 	border: var(--border-md);
 	border-radius: var(--radius-md);
-	padding: 18px var(--padding-left) 16px;
+	padding: 18px 50px 16px var(--padding-left);
 	width: 100%;
 	::placeholder {
 		font-size: calc(var(--font-sm) + 2px);
