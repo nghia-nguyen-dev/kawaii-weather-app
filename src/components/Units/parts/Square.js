@@ -4,12 +4,13 @@ export const highlight = css`
 	color: var(--warm-white);
 	background-color: var(--red);
 	border: var(--border-sm);
-	border-radius: var(--radius-sm);
+	border-radius: 100%;
 `;
 
 const Square = styled.div`
-	height: 30px;
-	width: 30px;
+	font-size: 14px;
+	height: 32px;
+	width: 32px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

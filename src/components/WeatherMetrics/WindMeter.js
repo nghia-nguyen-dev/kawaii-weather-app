@@ -6,7 +6,7 @@ const WindMeter = () => {
 	return (
 		<Container>
 			<SubHead>Wind</SubHead>
-			<Fill/>
+			<Fill width="35%"/>
 		</Container>
 	);
 };

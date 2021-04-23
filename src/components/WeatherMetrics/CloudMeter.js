@@ -6,7 +6,7 @@ const CloudMeter = () => {
 	return (
 		<Container>
 			<SubHead>Clouds</SubHead>
-			<Fill/>
+			<Fill width="75%"/>
 		</Container>
 	);
 };

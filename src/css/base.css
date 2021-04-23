@@ -1,6 +1,7 @@
 body {
 	background-color: var(--bg-color);
 	font-family: "Proxima Soft";
+	padding: 50px 160px ;
 }
 
 .App {
@@ -19,6 +20,3 @@ form {
 	right: 26px;
 }
 
-.WeatherMetrics div {
-	margin-bottom: 12px;
-}

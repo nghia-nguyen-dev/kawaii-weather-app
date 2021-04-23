@@ -7,7 +7,7 @@ const HumidityMeter = () => {
 	return (
 		<Container>
 			<SubHead>Humidity</SubHead>
-			<Fill />
+			<Fill width="15%" />
 		</Container>
 	);
 };

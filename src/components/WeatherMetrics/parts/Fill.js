@@ -4,7 +4,7 @@ export const Fill = styled.div`
 	background-color: var(--orange);
 	height: 100%;
 	position: absolute;
-	width: 65%;
+	width:${({width}) => width};
 	left: 0;
 	top: 0;
 	z-index: -1;

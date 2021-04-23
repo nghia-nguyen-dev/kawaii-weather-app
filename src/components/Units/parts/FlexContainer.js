@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 const FlexContainer = styled.div`
 	display: flex;
-	width: 80px;
 	justify-content: space-between;
+	width: 80px;
+	grid-column: 3/4;
+	justify-self: flex-end;
+	align-self: center;
 `;
 
 export default FlexContainer;

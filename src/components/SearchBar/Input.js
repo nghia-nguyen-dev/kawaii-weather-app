@@ -6,13 +6,10 @@ const Input = styled.input`
 	color: var(--dark-blk);
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-sm);
-
 	border: var(--border-md);
 	border-radius: var(--radius-md);
-
-	padding: 18px 28px 16px;
-	width: 282px;
-
+	padding: 18px var(--padding-left) 16px;
+	width: 100%;
 	::placeholder {
 		font-size: calc(var(--font-sm) + 2px);
 		color: #adadad;
