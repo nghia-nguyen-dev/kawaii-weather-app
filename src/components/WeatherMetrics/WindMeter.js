@@ -1,6 +1,6 @@
 import Container from "components/WeatherMetrics/parts/Container";
 import Fill from "components/WeatherMetrics/parts/Fill";
-import SubHead from "components/WeatherMetrics/parts/SubHead";
+import SubHead from "components/shared-parts/SubHead";
 
 const WindMeter = () => {
 	return (

@@ -3,6 +3,7 @@ import SearchBar from "components/SearchBar/SearchBar";
 import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import Units from "components/Units/Units";
 import WeatherMain from "components/WeatherMain/WeatherMain";
+import DailyForecast from "components/DailyForecast/DailyForecast";
 import styled from "styled-components";
 
 const Grid = styled.div`
@@ -19,6 +20,7 @@ const App = () => {
 			<Units />
 			<WeatherMain />
 			<WeatherMetrics />
+			<DailyForecast />
 		</Grid>
 	);
 };

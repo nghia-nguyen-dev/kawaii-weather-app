@@ -7,7 +7,8 @@ export const highlight = css`
 	border-radius: 100%;
 `;
 
-const Square = styled.div`
+const Circle = styled.div`
+	cursor: pointer;
 	font-size: 14px;
 	height: 32px;
 	width: 32px;
@@ -16,4 +17,4 @@ const Square = styled.div`
 	align-items: center;
 `;
 
-export default Square;
+export default Circle;

@@ -1,8 +1,8 @@
-import Square, { highlight } from "components/Units/parts/Square";
+import Circle, { highlight } from "components/Units/parts/Circle";
 import styled from "styled-components";
 
-const Celsius = styled(Square)`
-	${({ unit }) => unit === "C" && highlight}
+const Celsius = styled(Circle)`
+	${p => p.unit === "C" && highlight}
 `;
 
 export default Celsius;

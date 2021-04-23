@@ -1,7 +1,7 @@
-import Square, { highlight } from "components/Units/parts/Square";
+import Circle, { highlight } from "components/Units/parts/Circle";
 import styled from "styled-components";
 
-const Fahrenheit = styled(Square)`
+const Fahrenheit = styled(Circle)`
 	${({ unit }) => unit === "F" && highlight}
 `;
 
