@@ -12,7 +12,7 @@ const UL = styled.ul`
 	display: flex;
 	justify-content: space-between;
 	grid-column: 1/4;
-	background-color: var(--blue);
+	background-color: var(--light-blue);
 	padding: 48px 74px 42px;
 	border-radius: var(--radius-lg);
 	border: var(--border-lg);

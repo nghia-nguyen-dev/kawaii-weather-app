@@ -7,6 +7,7 @@ const FlexContainer = styled.div`
 	grid-column: 3/4;
 	justify-self: flex-end;
 	align-self: center;
+	transform: translateY(2px);
 `;
 
 export default FlexContainer;

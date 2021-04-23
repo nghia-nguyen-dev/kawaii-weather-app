@@ -4,7 +4,7 @@ export const Container = styled.div`
 	position: relative;
 	border: var(--border-md);
 	border-radius: var(--radius-md);
-	padding: 19px var(--padding-left) 15px;
+	padding: 14px var(--padding-left) 12px;
 `;
 
 export default Container;

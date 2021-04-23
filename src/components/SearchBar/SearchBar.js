@@ -6,7 +6,7 @@ import styled from "styled-components";
 const Form = styled.form`
 	grid-column: 1/3;
 	height: max-content;
-	width: 70%;
+	width: 60%;
 `;
 
 const SearchBar = () => {
