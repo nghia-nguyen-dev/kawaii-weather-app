@@ -5,12 +5,16 @@ import Celsius from "components/Units/Celsius";
 const Units = () => {
 	const [unit, setUnit] = useState("F");
 
-    const handleClick = e => setUnit(e.target)
+	const handleClick = e => setUnit(e.target.innerText);
 
 	return (
-		<div>
-			<Celsius unit={unit}>C</Celsius>
-			<Fahrenheit unit />
+		<div className="Units">
+			<Celsius unit={unit} onClick={handleClick}>
+				C
+			</Celsius>
+			<Fahrenheit unit={unit} onClick={handleClick}>
+				F
+			</Fahrenheit>
 		</div>
 	);
 };
