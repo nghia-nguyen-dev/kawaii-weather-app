@@ -36,14 +36,14 @@ const fetchWeatherData = coordinates => {
 	});
 };
 
-const SearchBar = () => {
+const SearchBar = ({setWeatherData}) => {
 	const [location, setLocation] = useState("");
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		fetchCoordinates(location)
 			.then(fetchWeatherData)
-			.then(res => console.log(res.data));
+			.then(res => setWeatherData(res.data));
 	};
 
 	return (

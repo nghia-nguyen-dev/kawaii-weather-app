@@ -1,11 +1,12 @@
+import { useState } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import Units from "components/Units/Units";
 import WeatherMain from "components/WeatherMain/WeatherMain";
 import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
-import TopCloud from "components/BackgroundClouds/TopCloud"
-import BottomClouds from "components/BackgroundClouds/BottomClouds"
+import TopCloud from "components/BackgroundClouds/TopCloud";
+import BottomClouds from "components/BackgroundClouds/BottomClouds";
 
 import styled from "styled-components";
 
@@ -20,18 +21,21 @@ const Grid = styled.div`
 `;
 
 const App = () => {
+	const [weatherData, setWeatherData] = useState({});
+
+	
 	return (
 		<>
 			<Grid>
-				<SearchBar />
+				<SearchBar setWeatherData={setWeatherData} />
 				<Units />
 				<WeatherMain />
 				<WeatherMetrics />
 				<DailyForecast />
 			</Grid>
 			<BackgroundClouds>
-				<TopCloud/>
-				<BottomClouds/>
+				<TopCloud />
+				<BottomClouds />
 			</BackgroundClouds>
 		</>
 	);
