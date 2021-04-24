@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1098px" height="1088px" viewBox="0 0 1098 1088" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bottomCloud</title>
+    <g id="Page-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="weather-app-copy-5" transform="translate(-639.000000, -491.000000)" fill="#F9F1EB">
+            <g id="bottomCloud" transform="translate(639.000000, 491.000000)">
+                <circle id="right-cloud" cx="801" cy="297" r="297"></circle>
+                <circle id="left-cloud" cx="448" cy="640" r="448"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

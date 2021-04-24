@@ -5,6 +5,7 @@ import WeatherMain from "components/WeatherMain/WeatherMain";
 import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud"
+import BottomClouds from "components/BackgroundClouds/BottomClouds"
 
 import styled from "styled-components";
 
@@ -30,6 +31,7 @@ const App = () => {
 			</Grid>
 			<BackgroundClouds>
 				<TopCloud/>
+				<BottomClouds/>
 			</BackgroundClouds>
 		</>
 	);

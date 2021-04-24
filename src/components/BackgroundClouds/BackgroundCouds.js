@@ -6,7 +6,8 @@ const BackgroundClouds = styled.div`
 	top: 0;
 	left: 0;
 	width: 100vw;
-	z-index: -1;
+	overflow: hidden;
+	pointer-events:none;
 `;
 
 export default BackgroundClouds;

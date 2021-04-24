@@ -40,6 +40,9 @@ const UL = styled.ul`
 	@media (max-width: 1016px) {
 		grid-column:1/5;
 	}
+	@media (max-width: 744px) {
+		padding: 38px 52px 32px;
+	}
 `;
 
 const LI = styled.li`

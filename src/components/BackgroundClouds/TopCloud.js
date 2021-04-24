@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "styled-components";
+
+const Svg = styled.svg`
+    position: absolute;
+    z-index:-1;
+`;
 
 const TopCloud = () => {
 	return (
-		<svg width="233px" height="135px" viewBox="0 0 233 135" version="1.1">
+		<Svg width="233px" height="135px" viewBox="0 0 233 135" version="1.1">
 			<g
 				id="Page-6"
 				stroke="none"
@@ -14,7 +20,7 @@ const TopCloud = () => {
 					<circle id="Oval-Copy-3" cx="80" cy="-30" r="154"></circle>
 				</g>
 			</g>
-		</svg>
+		</Svg>
 	);
 };
 
