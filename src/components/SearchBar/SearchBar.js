@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchIcon from "components/SearchBar/SearchIcon";
-import Input from "components/SearchBar/Input";
+import SearchInput from "components/SearchBar/SearchInput";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -17,16 +17,16 @@ const Form = styled.form`
 
 const SearchBar = () => {
 	const [location, setLocation] = useState("");
-	const handleChange = e => setLocation(e.target.value);
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		console.log(location);
+	};
 
 	return (
-		<Form>
+		<Form onSubmit={handleSubmit}>
 			<SearchIcon />
-			<Input
-				onChange={handleChange}
-				value={location}
-				placeholder="city, country or zip"
-			></Input>
+			<SearchInput location={location} setLocation={setLocation} />
 		</Form>
 	);
 };
