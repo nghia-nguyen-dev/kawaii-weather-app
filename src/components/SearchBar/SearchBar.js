@@ -23,12 +23,27 @@ const fetchCoordinates = location => {
 		});
 };
 
+const fetchWeatherData = coordinates => {
+	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
+	return axios.get(base, {
+		params: {
+			lat: coordinates.lat,
+			lon: coordinates.lon,
+			exclude: `minutely,hourly,alerts`,
+			units: "imperial",
+			appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+		},
+	});
+};
+
 const SearchBar = () => {
 	const [location, setLocation] = useState("");
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		fetchCoordinates(location).then(res => console.log(res));
+		fetchCoordinates(location)
+			.then(fetchWeatherData)
+			.then(res => console.log(res.data));
 	};
 
 	return (
