@@ -11,7 +11,7 @@ const Div = styled.div`
 	padding-right: 40px;
 	grid-column: 1/4;
 	@media (max-width: 1016px) {
-		grid-column:1/5;
+		grid-column: 1/5;
 	}
 `;
 
@@ -28,12 +28,20 @@ const BigTemp = styled.h1`
 	font-size: 342px;
 	line-height: 257px;
 	text-align: right;
+	@media (max-width: 744px) {
+		font-size: 260px;
+		line-height: 197px;
+	}
 `;
 
 const Flex = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 102px;
+	@media (max-width: 744px) {
+		margin-top: 72px;
+	
+	}
 `;
 
 const WeatherMain = () => {

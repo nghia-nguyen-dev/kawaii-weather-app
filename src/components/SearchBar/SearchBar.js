@@ -10,6 +10,9 @@ const Form = styled.form`
 	@media (max-width: 1016px) {
 		width: 75%;
 	}
+	@media (max-width: 744px) {
+		width: 100%;
+	}
 `;
 
 const SearchBar = () => {

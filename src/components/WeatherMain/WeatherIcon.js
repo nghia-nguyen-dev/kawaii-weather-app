@@ -3,6 +3,11 @@ import styled from "styled-components";
 
 const Svg = styled.svg`
 	margin-right: 40px;
+	@media (max-width: 744px) {
+		width: 90px;
+		height: max-content;
+		margin-right: 20px;
+	}
 `;
 
 const WeatherIcon = () => {
