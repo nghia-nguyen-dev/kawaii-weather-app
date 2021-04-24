@@ -2,18 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Svg = styled.svg`
-    margin-right:40px;
+	margin-right: 40px;
 `;
 
 const WeatherIcon = () => {
 	return (
-		<Svg
-			width="141px"
-			height="97px"
-			viewBox="0 0 141 97"
-			version="1.1"
-		>
-		
+		<Svg width="141px" height="97px" viewBox="0 0 141 97" version="1.1">
 			<g
 				id="Page-6"
 				stroke="none"

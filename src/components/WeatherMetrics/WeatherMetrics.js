@@ -8,6 +8,10 @@ const Div = styled.div`
 	div {
 		margin-bottom: 12px;
 	}
+	@media (max-width: 1016px) {
+		gap: 30px;
+		display: none;
+	}
 `;
 
 const WeatherMetrics = () => {

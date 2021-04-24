@@ -8,6 +8,9 @@ const FlexContainer = styled.div`
 	justify-self: flex-end;
 	align-self: center;
 	transform: translateY(2px);
+	@media (max-width: 1016px) {
+		grid-column: 4/5;
+	}
 `;
 
 export default FlexContainer;

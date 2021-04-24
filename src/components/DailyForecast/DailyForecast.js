@@ -37,6 +37,9 @@ const UL = styled.ul`
 	padding: 48px 74px 42px;
 	border-radius: var(--radius-lg);
 	border: var(--border-lg);
+	@media (max-width: 1016px) {
+		grid-column:1/5;
+	}
 `;
 
 const LI = styled.li`
