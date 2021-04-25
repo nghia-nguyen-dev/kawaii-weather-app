@@ -6,7 +6,6 @@ import axios from "axios";
 
 const fetchCoordinates = location => {
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
-
 	return axios
 		.get(base, {
 			params: {
@@ -17,6 +16,9 @@ const fetchCoordinates = location => {
 		})
 		.then(({ data }) => {
 			return {
+				city: data[0].name,
+				state: data[0].state,
+				country: data[0].country,
 				lat: data[0].lat,
 				lon: data[0].lon,
 			};
@@ -24,6 +26,8 @@ const fetchCoordinates = location => {
 };
 
 const fetchWeatherData = coordinates => {
+	console.log(coordinates);
+
 	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
 	return axios.get(base, {
 		params: {
@@ -36,20 +40,30 @@ const fetchWeatherData = coordinates => {
 	});
 };
 
-const SearchBar = ({setWeatherData}) => {
-	const [location, setLocation] = useState("");
+const SearchBar = ({ setWeatherData, setLocation }) => {
+	const [searchTerm, setSearchTerm] = useState("");
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		fetchCoordinates(location)
-			.then(fetchWeatherData)
+		fetchCoordinates(searchTerm)
+			.then(location => {
+				setLocation({
+					city: location.city,
+					state: location.state,
+					country: location.country,
+				});
+				return fetchWeatherData(location);
+			})
 			.then(res => setWeatherData(res.data));
 	};
 
 	return (
 		<Form onSubmit={handleSubmit}>
 			<SearchIcon />
-			<SearchInput location={location} setLocation={setLocation} />
+			<SearchInput
+				searchTerm={searchTerm}
+				setSearchTerm={setSearchTerm}
+			/>
 		</Form>
 	);
 };

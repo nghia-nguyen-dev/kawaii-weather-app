@@ -40,17 +40,19 @@ const Flex = styled.div`
 	margin-top: 102px;
 	@media (max-width: 744px) {
 		margin-top: 72px;
-	
 	}
 `;
 
-const WeatherMain = () => {
+const WeatherMain = ({ weatherData, location }) => {
+	console.log(weatherData)
 	return (
 		<Div>
-			<Location>Boston, Ma</Location>
+			<Location>
+				{location.city}, {location.state || location.country}
+			</Location>
 			<Flex>
 				<WeatherIcon />
-				<BigTemp>72</BigTemp>
+				<BigTemp>{Math.round(weatherData.current?.temp)}</BigTemp>
 			</Flex>
 		</Div>
 	);

@@ -5,7 +5,6 @@ import FlexContainer from "components/Units/parts/FlexContainer";
 
 const Units = () => {
 	const [unit, setUnit] = useState("F");
-
 	const handleClick = e => setUnit(e.target.innerText);
 
 	return (
