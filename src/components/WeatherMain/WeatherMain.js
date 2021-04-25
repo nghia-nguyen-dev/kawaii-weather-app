@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WeatherIcon from "components/WeatherMain/WeatherIcon";
+import { toCelsius } from "utils/helper";
 
 const Div = styled.div`
 	background-color: var(--blue);
@@ -43,15 +44,20 @@ const Flex = styled.div`
 	}
 `;
 
-const WeatherMain = ({ weatherData, location, unit }) => {
+const WeatherMain = ({ weatherData, location, isCelsius }) => {
+	const { city, state, country } = location;
+	const temp = weatherData.current?.temp;
+
+	const renderedTemp = isCelsius ? toCelsius(temp) : temp;
+
 	return (
 		<Div>
 			<Location>
-				{location.city}, {location.state || location.country}
+				{city}, {state || country}
 			</Location>
 			<Flex>
 				<WeatherIcon />
-				<BigTemp>{Math.round(weatherData.current?.temp)}</BigTemp>
+				<BigTemp>{Math.round(renderedTemp)}</BigTemp>
 			</Flex>
 		</Div>
 	);

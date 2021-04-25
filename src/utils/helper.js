@@ -1,0 +1,1 @@
+export const toCelsius = f => ((f - 32) * 5) / 9;

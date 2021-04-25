@@ -1,4 +1,5 @@
 import SubHead from "components/shared-parts/SubHead";
+import { toCelsius } from "utils/helper";
 import styled from "styled-components";
 
 const Temp = styled.p`
@@ -47,12 +48,15 @@ const dayNames = {
 	6: "SAT",
 };
 
-const DailyForecast = ({ weatherData }) => {
+const DailyForecast = ({ weatherData, isCelsius }) => {
 	const renderedList = weatherData.daily?.map((temp, index) => {
+		const renderedTemp = isCelsius
+			? Math.round(toCelsius(temp))
+			: Math.round(temp);
 		return (
 			<Li>
 				<SubHead config={config}>{getDayName(index)}</SubHead>
-				<Temp>{Math.round(temp)}</Temp>
+				<Temp>{renderedTemp}</Temp>
 			</Li>
 		);
 	});
