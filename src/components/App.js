@@ -41,7 +41,7 @@ const App = () => {
 					location={location}
 					weatherData={weatherData}
 				/>
-				<WeatherMetrics />
+				<WeatherMetrics weatherData={weatherData}/>
 				<DailyForecast weatherData={weatherData} isCelsius={isCelsius}/>
 			</Grid>
 			<BackgroundClouds>

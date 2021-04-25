@@ -14,12 +14,12 @@ const Div = styled.div`
 	}
 `;
 
-const WeatherMetrics = () => {
+const WeatherMetrics = ({weatherData}) => {
 	return (
 		<Div>
-			<WindMeter />
-			<HumidityMeter />
-			<CloudMeter />
+			<WindMeter weatherData={weatherData}/>
+			<HumidityMeter weatherData={weatherData}/>
+			<CloudMeter weatherData={weatherData}/>
 		</Div>
 	);
 };

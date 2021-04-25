@@ -74,6 +74,7 @@ const extractWeather = data => {
 		current: {
 			temp: data.current.temp,
 			clouds: data.current.clouds,
+			humidity: data.current.humidity,
 			windSpeed: data.current.wind_speed,
 			weatherID: data.current.weather[0].id,
 		},
