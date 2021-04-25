@@ -23,7 +23,7 @@ const Grid = styled.div`
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
-	const [unit, setUnit] = useState("F");
+	const [isCelsius, setIsCelsius] = useState(false);
 
 	console.log(weatherData)
 	console.log(location)
@@ -35,14 +35,14 @@ const App = () => {
 					setWeatherData={setWeatherData}
 					setLocation={setLocation}
 				/>
-				<Units unit={unit} setUnit={setUnit} />
+				<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
 				<WeatherMain
-					unit={unit}
+					isCelsius={isCelsius}
 					location={location}
 					weatherData={weatherData}
 				/>
-				<WeatherMetrics />
-				<DailyForecast weatherData={weatherData}/>
+				<WeatherMetrics weatherData={weatherData}/>
+				<DailyForecast weatherData={weatherData} isCelsius={isCelsius}/>
 			</Grid>
 			<BackgroundClouds>
 				<TopCloud />

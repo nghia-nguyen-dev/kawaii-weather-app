@@ -2,11 +2,11 @@ import Container from "components/WeatherMetrics/parts/Container";
 import Fill from "components/WeatherMetrics/parts/Fill";
 import SubHead from "components/shared-parts/SubHead";
 
-const CloudMeter = () => {
+const CloudMeter = ({ weatherData }) => {
 	return (
 		<Container>
-			<SubHead>Clouds</SubHead>
-			<Fill width="75%"/>
+			<SubHead>cloudy</SubHead>
+			<Fill width={`${weatherData.current?.clouds}%`} />
 		</Container>
 	);
 };

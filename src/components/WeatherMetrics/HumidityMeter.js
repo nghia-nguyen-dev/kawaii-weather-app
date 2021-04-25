@@ -3,11 +3,11 @@ import Container from "components/WeatherMetrics/parts/Container";
 import Fill from "components/WeatherMetrics/parts/Fill";
 import SubHead from "components/shared-parts/SubHead";
 
-const HumidityMeter = () => {
+const HumidityMeter = ({weatherData}) => {
 	return (
 		<Container>
 			<SubHead>Humidity</SubHead>
-			<Fill width="15%" />
+			<Fill width={`${weatherData.current?.humidity}%`} />
 		</Container>
 	);
 };
