@@ -25,6 +25,8 @@ const App = () => {
 	const [location, setLocation] = useState("");
 	const [unit, setUnit] = useState("F");
 
+	console.log(weatherData)
+
 	return (
 		<>
 			<Grid>
@@ -32,11 +34,12 @@ const App = () => {
 					setWeatherData={setWeatherData}
 					setLocation={setLocation}
 				/>
-				<Units 
+				<Units unit={unit} setUnit={setUnit} />
+				<WeatherMain
 					unit={unit}
-					setUnit={setUnit}
+					location={location}
+					weatherData={weatherData}
 				/>
-				<WeatherMain location={location} weatherData={weatherData} />
 				<WeatherMetrics />
 				<DailyForecast />
 			</Grid>
