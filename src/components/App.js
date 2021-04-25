@@ -26,6 +26,7 @@ const App = () => {
 	const [unit, setUnit] = useState("F");
 
 	console.log(weatherData)
+	console.log(location)
 
 	return (
 		<>
@@ -41,7 +42,7 @@ const App = () => {
 					weatherData={weatherData}
 				/>
 				<WeatherMetrics />
-				<DailyForecast />
+				<DailyForecast weatherData={weatherData}/>
 			</Grid>
 			<BackgroundClouds>
 				<TopCloud />
