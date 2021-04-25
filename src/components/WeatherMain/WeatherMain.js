@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import WeatherIcon from "components/WeatherMain/WeatherIcon";
-import { toCelsius } from "utils/helper";
+import { renderedTemp } from "utils/helper";
 
 const Div = styled.div`
 	background-color: var(--blue);
@@ -48,8 +48,6 @@ const WeatherMain = ({ weatherData, location, isCelsius }) => {
 	const { city, state, country } = location;
 	const temp = weatherData.current?.temp;
 
-	const renderedTemp = isCelsius ? toCelsius(temp) : temp;
-
 	return (
 		<Div>
 			<Location>
@@ -57,13 +55,11 @@ const WeatherMain = ({ weatherData, location, isCelsius }) => {
 			</Location>
 			<Flex>
 				<WeatherIcon />
-				<BigTemp>{Math.round(renderedTemp)}</BigTemp>
+				<BigTemp>{renderedTemp(isCelsius, temp)}</BigTemp>
 			</Flex>
 		</Div>
 	);
 };
 
-// Calculate temp base on unit
-const calcTemp = temp => {};
 
 export default WeatherMain;
