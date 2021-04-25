@@ -2,15 +2,15 @@ import React from "react";
 import Input from "components/SearchBar/parts/Input";
 import { compose, toUpper } from "ramda";
 
-const SearchInput = ({ location, setLocation }) => {
+const SearchInput = ({ searchTerm, setSearchTerm }) => {
 	const handleChange = e => {
-		compose(setLocation, toUpper)(e.target.value);
+		compose(setSearchTerm, toUpper)(e.target.value);
 	};
 
 	return (
 		<Input
 			onChange={handleChange}
-			value={location}
+			value={searchTerm}
 			placeholder="city, country or zip"
 		/>
 	);

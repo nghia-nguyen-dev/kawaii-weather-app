@@ -22,14 +22,14 @@ const Grid = styled.div`
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
+	const [location, setLocation] = useState("");
 
-	
 	return (
 		<>
 			<Grid>
-				<SearchBar setWeatherData={setWeatherData} />
+				<SearchBar setWeatherData={setWeatherData} setLocation={setLocation}/>
 				<Units />
-				<WeatherMain />
+				<WeatherMain location={location} weatherData={weatherData} />
 				<WeatherMetrics />
 				<DailyForecast />
 			</Grid>
