@@ -5,6 +5,36 @@ import Form from "components/SearchBar/parts/Form";
 import axios from "axios";
 import { slice, map, compose } from "ramda";
 
+const SearchBar = ({ setWeatherData, setLocation }) => {
+	const [searchTerm, setSearchTerm] = useState("");
+
+	const handleSubmit = e => {
+		e.preventDefault();
+
+		fetchCoordinates(searchTerm)
+			.then(location => {
+				compose(setLocation, extractLocation)(location);
+				return location;
+			})
+			.then(fetchWeatherData)
+			.then(res => compose(setWeatherData, extractWeather)(res.data));
+	};
+
+	return (
+		<Form onSubmit={handleSubmit}>
+			<SearchIcon />
+			<SearchInput
+				searchTerm={searchTerm}
+				setSearchTerm={setSearchTerm}
+			/>
+		</Form>
+	);
+};
+
+export default SearchBar;
+
+// UTILS -----------------------------------------------------------------
+
 const fetchCoordinates = location => {
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
 	return axios
@@ -47,7 +77,10 @@ const extractWeather = data => {
 			windSpeed: data.current.wind_speed,
 			weatherID: data.current.weather[0].id,
 		},
-		daily: compose(map(day => day.temp.day), slice(0, 5))(data.daily),
+		daily: compose(
+			map(day => day.temp.day),
+			slice(0, 5)
+		)(data.daily),
 	};
 };
 
@@ -62,31 +95,3 @@ const extractLocation = location => {
 		},
 	};
 };
-
-const SearchBar = ({ setWeatherData, setLocation }) => {
-	const [searchTerm, setSearchTerm] = useState("");
-
-	const handleSubmit = e => {
-		e.preventDefault();
-
-		fetchCoordinates(searchTerm)
-			.then(location => {
-				compose(setLocation, extractLocation)(location);
-				return location;
-			})
-			.then(fetchWeatherData)
-			.then(res => compose(setWeatherData, extractWeather)(res.data));
-	};
-
-	return (
-		<Form onSubmit={handleSubmit}>
-			<SearchIcon />
-			<SearchInput
-				searchTerm={searchTerm}
-				setSearchTerm={setSearchTerm}
-			/>
-		</Form>
-	);
-};
-
-export default SearchBar;
