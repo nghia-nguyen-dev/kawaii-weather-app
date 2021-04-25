@@ -3,10 +3,8 @@ import Fahrenheit from "components/Units/Fahrenheit";
 import Celsius from "components/Units/Celsius";
 import FlexContainer from "components/Units/parts/FlexContainer";
 
-const Units = () => {
-	const [unit, setUnit] = useState("F");
+const Units = ({ unit, setUnit }) => {
 	const handleClick = e => setUnit(e.target.innerText);
-
 	return (
 		<FlexContainer>
 			<Celsius unit={unit} onClick={handleClick}>

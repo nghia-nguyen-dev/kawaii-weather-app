@@ -43,8 +43,7 @@ const Flex = styled.div`
 	}
 `;
 
-const WeatherMain = ({ weatherData, location }) => {
-	console.log(weatherData)
+const WeatherMain = ({ weatherData, location, unit }) => {
 	return (
 		<Div>
 			<Location>
@@ -57,5 +56,8 @@ const WeatherMain = ({ weatherData, location }) => {
 		</Div>
 	);
 };
+
+// Calculate temp base on unit
+const calcTemp = temp => {};
 
 export default WeatherMain;
