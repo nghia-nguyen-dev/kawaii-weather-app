@@ -1,6 +1,8 @@
+import { slice, map, compose } from "ramda";
 import axios from "axios";
 export const toCelsius = f => ((f - 32) * 5) / 9;
-export const renderedTemp = (isCelsius, temp) => Math.round(isCelsius ? toCelsius(temp) : temp);
+export const renderedTemp = (isCelsius, temp) =>
+	Math.round(isCelsius ? toCelsius(temp) : temp);
 
 /* To determine meter width in css (wind speed in mph)
  ** max width of bar is 100%
@@ -31,3 +33,43 @@ export const fetchCoordinates = location => {
 		});
 };
 
+export const fetchWeatherData = coordinates => {
+	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
+	return axios.get(base, {
+		params: {
+			lat: coordinates.lat,
+			lon: coordinates.lon,
+			exclude: `minutely,hourly,alerts`,
+			units: "imperial",
+			appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+		},
+	});
+};
+
+export const extractWeather = data => {
+	return {
+		current: {
+			temp: data.current.temp,
+			clouds: data.current.clouds,
+			humidity: data.current.humidity,
+			windSpeed: data.current.wind_speed,
+			weatherID: data.current.weather[0].id,
+		},
+		daily: compose(
+			map(day => day.temp.day),
+			slice(0, 5)
+		)(data.daily),
+	};
+};
+
+export const extractLocation = location => {
+	return {
+		city: location.city,
+		state: location.state,
+		country: location.country,
+		coord: {
+			lat: location.lat,
+			lon: location.lon,
+		},
+	};
+};
