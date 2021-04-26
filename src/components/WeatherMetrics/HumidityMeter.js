@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "components/WeatherMetrics/parts/Container";
 import Fill from "components/WeatherMetrics/parts/Fill";
-import SubHead from "components/shared-parts/SubHead";
+import SubHead from "components/WeatherMetrics/parts/SubHead";
 
 const HumidityMeter = ({weatherData}) => {
 	return (
