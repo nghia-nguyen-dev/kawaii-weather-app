@@ -7,7 +7,6 @@ import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
-
 import styled from "styled-components";
 
 const Grid = styled.div`
@@ -20,13 +19,17 @@ const Grid = styled.div`
 	}
 `;
 
+const getClientCoordinates = () => {
+	navigator.geolocation.getCurrentPosition(position => {
+		console.log(position.coords.latitude, position.coords.longitude);
+	}, error => console.log(error), {enableHighAccuracy: true});
+	
+}
+
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
-
-	console.log(weatherData)
-	console.log(location)
 
 	return (
 		<>

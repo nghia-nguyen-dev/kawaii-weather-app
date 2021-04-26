@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import SearchIcon from "components/SearchBar/SearchIcon";
 import SearchInput from "components/SearchBar/SearchInput";
 import Form from "components/SearchBar/parts/Form";
-import axios from "axios";
+import {fetchCoordinates} from "utils/helper"
 import { slice, map, compose } from "ramda";
+import axios from "axios";
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -35,26 +36,26 @@ export default SearchBar;
 
 // UTILS -----------------------------------------------------------------
 
-const fetchCoordinates = location => {
-	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
-	return axios
-		.get(base, {
-			params: {
-				q: location,
-				limit: 1,
-				appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
-			},
-		})
-		.then(({ data }) => {
-			return {
-				city: data[0].name,
-				state: data[0].state,
-				country: data[0].country,
-				lat: data[0].lat,
-				lon: data[0].lon,
-			};
-		});
-};
+// const fetchCoordinates = location => {
+// 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
+// 	return axios
+// 		.get(base, {
+// 			params: {
+// 				q: location,
+// 				limit: 1,
+// 				appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+// 			},
+// 		})
+// 		.then(({ data }) => {
+// 			return {
+// 				city: data[0].name,
+// 				state: data[0].state,
+// 				country: data[0].country,
+// 				lat: data[0].lat,
+// 				lon: data[0].lon,
+// 			};
+// 		});
+// };
 
 const fetchWeatherData = coordinates => {
 	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
