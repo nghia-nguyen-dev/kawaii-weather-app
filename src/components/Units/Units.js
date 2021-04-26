@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Fahrenheit from "components/Units/Fahrenheit";
 import Celsius from "components/Units/Celsius";
 import FlexContainer from "components/Units/parts/FlexContainer";
