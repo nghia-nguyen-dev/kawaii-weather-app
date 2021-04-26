@@ -1,4 +1,4 @@
-import { slice, map, compose } from "ramda";
+import { slice, map, compose, pipe, toLower } from "ramda";
 import axios from "axios";
 export const toCelsius = f => ((f - 32) * 5) / 9;
 export const renderedTemp = (isCelsius, temp) =>
@@ -12,17 +12,20 @@ export const renderedTemp = (isCelsius, temp) =>
 const maxWindSpeed = 75;
 export const multiplier = 100 / maxWindSpeed;
 
+const formatStr = location => location.toUpperCase().replaceAll(" ", ",");
+
 export const fetchCoordinates = location => {
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
 	return axios
 		.get(base, {
 			params: {
-				q: location,
+				q: formatStr(location),
 				limit: 1,
 				appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
 			},
 		})
 		.then(({ data }) => {
+			console.log(data);
 			return {
 				city: data[0].name,
 				state: data[0].state,

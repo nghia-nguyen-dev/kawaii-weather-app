@@ -26,21 +26,21 @@ const App = () => {
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
 
-	useEffect(() => {
-		navigator.geolocation.getCurrentPosition(
-			position => {
-				const coordinates = {
-					lat: position.coords.latitude,
-					lon: position.coords.longitude,
-				};
-				fetchWeatherData(coordinates).then(res =>
-					compose(setWeatherData, extractWeather)(res.data)
-				);
-			},
-			console.log,
-			{ enableHighAccuracy: true }
-		);
-	}, []);
+	// useEffect(() => {
+	// 	navigator.geolocation.getCurrentPosition(
+	// 		position => {
+	// 			const coordinates = {
+	// 				lat: position.coords.latitude,
+	// 				lon: position.coords.longitude,
+	// 			};
+	// 			fetchWeatherData(coordinates).then(res =>
+	// 				compose(setWeatherData, extractWeather)(res.data)
+	// 			);
+	// 		},
+	// 		console.log,
+	// 		{ enableHighAccuracy: true }
+	// 	);
+	// }, []);
 
 	return (
 		<>
