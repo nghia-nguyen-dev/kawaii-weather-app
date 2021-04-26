@@ -1,11 +1,8 @@
 import React from "react";
 import Input from "components/SearchBar/parts/Input";
-import { compose, toUpper } from "ramda";
 
 const SearchInput = ({ searchTerm, setSearchTerm }) => {
-	const handleChange = e => {
-		compose(setSearchTerm, toUpper)(e.target.value);
-	};
+	const handleChange = e => setSearchTerm(e.target.value);
 
 	return (
 		<Input

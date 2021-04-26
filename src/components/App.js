@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import Units from "components/Units/Units";
@@ -7,6 +7,8 @@ import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
+import { fetchWeatherData, extractWeather } from "utils/helper";
+import { compose } from "ramda";
 import styled from "styled-components";
 
 const Grid = styled.div`
@@ -19,17 +21,26 @@ const Grid = styled.div`
 	}
 `;
 
-const getClientCoordinates = () => {
-	navigator.geolocation.getCurrentPosition(position => {
-		console.log(position.coords.latitude, position.coords.longitude);
-	}, error => console.log(error), {enableHighAccuracy: true});
-	
-}
-
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
+
+	// useEffect(() => {
+	// 	navigator.geolocation.getCurrentPosition(
+	// 		position => {
+	// 			const coordinates = {
+	// 				lat: position.coords.latitude,
+	// 				lon: position.coords.longitude,
+	// 			};
+	// 			fetchWeatherData(coordinates).then(res =>
+	// 				compose(setWeatherData, extractWeather)(res.data)
+	// 			);
+	// 		},
+	// 		console.log,
+	// 		{ enableHighAccuracy: true }
+	// 	);
+	// }, []);
 
 	return (
 		<>
@@ -44,8 +55,11 @@ const App = () => {
 					location={location}
 					weatherData={weatherData}
 				/>
-				<WeatherMetrics weatherData={weatherData}/>
-				<DailyForecast weatherData={weatherData} isCelsius={isCelsius}/>
+				<WeatherMetrics weatherData={weatherData} />
+				<DailyForecast
+					weatherData={weatherData}
+					isCelsius={isCelsius}
+				/>
 			</Grid>
 			<BackgroundClouds>
 				<TopCloud />

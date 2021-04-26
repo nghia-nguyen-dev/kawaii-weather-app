@@ -50,6 +50,7 @@ const WeatherMain = ({ weatherData, location, isCelsius }) => {
 
 	return (
 		<Div>
+
 			<Location>
 				{city}, {state || country}
 			</Location>
@@ -57,6 +58,7 @@ const WeatherMain = ({ weatherData, location, isCelsius }) => {
 				<WeatherIcon />
 				<BigTemp>{renderedTemp(isCelsius, temp)}</BigTemp>
 			</Flex>
+			
 		</Div>
 	);
 };
