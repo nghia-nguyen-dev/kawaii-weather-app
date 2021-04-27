@@ -8,7 +8,7 @@ import {
 	extractWeather,
 	extractLocation,
 } from "utils/helper";
-import { compose } from "ramda";
+import { pipe } from "ramda";
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -18,11 +18,11 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 
 		fetchCoordinates(searchTerm)
 			.then(location => {
-				compose(setLocation, extractLocation)(location);
+				pipe(extractLocation, setLocation)(location);
 				return location;
 			})
 			.then(fetchWeatherData)
-			.then(res => compose(setWeatherData, extractWeather)(res.data))
+			.then(res => pipe(extractWeather, setWeatherData)(res.data))
 			.catch(console.log);
 	};
 

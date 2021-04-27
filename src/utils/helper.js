@@ -77,3 +77,17 @@ export const extractLocation = location => {
 	};
 };
 
+export const askForPos = () => {
+	return new Promise((resolve, reject) => {
+		navigator.geolocation.getCurrentPosition(resolve, reject, {
+			enableHighAccuracy: true,
+		});
+	});
+};
+
+export const extractCoords = ({ coords }) => {
+	return {
+		lat: coords.latitude,
+		lon: coords.longitude,
+	};
+};
