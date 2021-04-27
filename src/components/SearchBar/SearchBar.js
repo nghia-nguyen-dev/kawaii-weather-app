@@ -23,7 +23,7 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 			})
 			.then(fetchWeatherData)
 			.then(res => compose(setWeatherData, extractWeather)(res.data))
-			.catch(err => console.log(err));
+			.catch(console.log);
 	};
 
 	return (

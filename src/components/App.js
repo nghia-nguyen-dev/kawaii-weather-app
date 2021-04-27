@@ -10,6 +10,7 @@ import BottomClouds from "components/BackgroundClouds/BottomClouds";
 import { fetchWeatherData, extractWeather } from "utils/helper";
 import { compose } from "ramda";
 import styled from "styled-components";
+import axios from "axios";
 
 const Grid = styled.div`
 	display: grid;
@@ -21,26 +22,50 @@ const Grid = styled.div`
 	}
 `;
 
+const askForPos = () => {
+	return new Promise((resolve, reject) => {
+		navigator.geolocation.getCurrentPosition(resolve, reject, {
+			enableHighAccuracy: true,
+		});
+	});
+};
+
+const extractCoords = ({ coords }) => {
+	return {
+		lat: coords.latitude,
+		lon: coords.longitude,
+	};
+};
+
+// const reverseGeocode = ({ lat, lon }) => {
+// 	const base = `http://api.openweathermap.org/geo/1.0/reverse?`;
+// 	return axios.get(base, {
+// 		params: {
+// 			lat,
+// 			lon,
+// 			limit: 1,
+// 			appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
+// 		},
+// 	})
+// 	.then(console.log)
+// 	;
+// };
+
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
 
-	// useEffect(() => {
-	// 	navigator.geolocation.getCurrentPosition(
-	// 		position => {
-	// 			const coordinates = {
-	// 				lat: position.coords.latitude,
-	// 				lon: position.coords.longitude,
-	// 			};
-	// 			fetchWeatherData(coordinates).then(res =>
-	// 				compose(setWeatherData, extractWeather)(res.data)
-	// 			);
-	// 		},
-	// 		console.log,
-	// 		{ enableHighAccuracy: true }
-	// 	);
-	// }, []);
+	useEffect(() => {
+		askForPos()
+			.then(extractCoords)
+			// .then(reverseGeocode)
+			// .then(console.log)
+			.then(fetchWeatherData)
+			.then(console.log)
+			// .then(res => compose(setWeatherData, extractWeather)(res.data))
+			.catch(console.log);
+	}, []);
 
 	return (
 		<>
