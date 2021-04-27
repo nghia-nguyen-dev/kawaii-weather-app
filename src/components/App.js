@@ -7,40 +7,27 @@ import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
-import { fetchWeatherData, extractWeather } from "utils/helper";
-import { compose } from "ramda";
-import styled from "styled-components";
-
-const Grid = styled.div`
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	max-width: 970px;
-	gap: 40px 38px;
-	@media (max-width: 985px) {
-		gap: 30px;
-	}
-`;
+import {
+	fetchWeatherData,
+	extractWeather,
+	askForPos,
+	extractCoords,
+} from "utils/helper";
+import { pipe } from "ramda";
+import Grid from "components/App/parts/Grid"
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
 
-	// useEffect(() => {
-	// 	navigator.geolocation.getCurrentPosition(
-	// 		position => {
-	// 			const coordinates = {
-	// 				lat: position.coords.latitude,
-	// 				lon: position.coords.longitude,
-	// 			};
-	// 			fetchWeatherData(coordinates).then(res =>
-	// 				compose(setWeatherData, extractWeather)(res.data)
-	// 			);
-	// 		},
-	// 		console.log,
-	// 		{ enableHighAccuracy: true }
-	// 	);
-	// }, []);
+	useEffect(() => {
+		askForPos()
+			.then(extractCoords)
+			.then(fetchWeatherData)
+			.then(pipe(extractWeather, setWeatherData))
+			.catch(console.log);
+	}, []);
 
 	return (
 		<>

@@ -1,5 +1,6 @@
 import { slice, map, compose, pipe, toLower } from "ramda";
 import axios from "axios";
+
 export const toCelsius = f => ((f - 32) * 5) / 9;
 export const renderedTemp = (isCelsius, temp) =>
 	Math.round(isCelsius ? toCelsius(temp) : temp);
@@ -49,7 +50,7 @@ export const fetchWeatherData = coordinates => {
 	});
 };
 
-export const extractWeather = data => {
+export const extractWeather = ({data}) => {
 	return {
 		current: {
 			temp: data.current.temp,
@@ -74,5 +75,20 @@ export const extractLocation = location => {
 			lat: location.lat,
 			lon: location.lon,
 		},
+	};
+};
+
+export const askForPos = () => {
+	return new Promise((resolve, reject) => {
+		navigator.geolocation.getCurrentPosition(resolve, reject, {
+			enableHighAccuracy: true,
+		});
+	});
+};
+
+export const extractCoords = ({ coords }) => {
+	return {
+		lat: coords.latitude,
+		lon: coords.longitude,
 	};
 };

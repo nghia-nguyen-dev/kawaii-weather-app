@@ -8,22 +8,21 @@ import {
 	extractWeather,
 	extractLocation,
 } from "utils/helper";
-import { compose } from "ramda";
+import { pipe } from "ramda";
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const handleSubmit = e => {
 		e.preventDefault();
-
 		fetchCoordinates(searchTerm)
 			.then(location => {
-				compose(setLocation, extractLocation)(location);
+				pipe(extractLocation, setLocation)(location);
 				return location;
 			})
 			.then(fetchWeatherData)
-			.then(res => compose(setWeatherData, extractWeather)(res.data))
-			.catch(err => console.log(err));
+			.then(pipe(extractWeather, setWeatherData))
+			.catch(console.log);
 	};
 
 	return (

@@ -47,12 +47,11 @@ const Flex = styled.div`
 const WeatherMain = ({ weatherData, location, isCelsius }) => {
 	const { city, state, country } = location;
 	const temp = weatherData.current?.temp;
-
 	return (
 		<Div>
 
 			<Location>
-				{city}, {state || country}
+				{city}{location && ","} {state || country}
 			</Location>
 			<Flex>
 				<WeatherIcon />
