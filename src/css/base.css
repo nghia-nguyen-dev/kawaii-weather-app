@@ -1,7 +1,7 @@
 body {
 	background-color: var(--bg-color);
 	font-family: "Proxima Soft";
-	padding: 50px 7vw ;
+	padding: 50px 7vw;
 }
 
 .App {
@@ -20,3 +20,18 @@ form {
 	right: 26px;
 }
 
+.pending {
+	animation: 3s slidein infinite alternate;
+}
+
+@keyframes slidein {
+	from {
+		margin-left: 100%;
+		width: 300%;
+	}
+
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
