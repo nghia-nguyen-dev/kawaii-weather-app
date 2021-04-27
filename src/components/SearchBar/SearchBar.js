@@ -10,6 +10,12 @@ import {
 	extractLocation,
 } from "utils/helper";
 import { pipe } from "ramda";
+import styled from "styled-components";
+
+const US = styled.span`
+	color: black;
+	/* font-style: italic; */
+`;
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -33,7 +39,10 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 				searchTerm={searchTerm}
 				setSearchTerm={setSearchTerm}
 			/>
-			<Tooltip className="Tooltip">For locations in the US, please search by zip.</Tooltip>
+			<Tooltip className="Tooltip">
+				For places in the US, search by <US>city + state + US</US>
+				<br /> or zipcode.
+			</Tooltip>
 		</Form>
 	);
 };

@@ -16,6 +16,7 @@ export const multiplier = 100 / maxWindSpeed;
 const formatStr = location => location.toUpperCase().replaceAll(" ", ",");
 
 export const fetchCoordinates = location => {
+	console.log(formatStr(location))
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
 	return axios
 		.get(base, {
@@ -26,7 +27,7 @@ export const fetchCoordinates = location => {
 			},
 		})
 		.then(({ data }) => {
-			console.log(data);
+			// console.log(data);
 			return {
 				city: data[0].name,
 				state: data[0].state,

@@ -35,7 +35,7 @@ const config = {
 const getDayName = index => {
 	const td = new Date().getDay();
 	const dayNum = td + index + 1;
-	return dayNames[dayNum];
+	return dayNames[dayNum > 6 ? 0 : dayNum]; // Handle edge case for SUN
 };
 
 const dayNames = {
@@ -50,6 +50,7 @@ const dayNames = {
 
 const DailyForecast = ({ weatherData, isCelsius }) => {
 	const renderedList = weatherData.daily?.map((temp, index) => {
+		console.log(weatherData);
 		return (
 			<Li>
 				<SubHead config={config}>{getDayName(index)}</SubHead>
