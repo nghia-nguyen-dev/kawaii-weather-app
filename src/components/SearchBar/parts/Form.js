@@ -11,7 +11,8 @@ const Form = styled.form`
 		width: 100%;
 	}
 	:hover .Tooltip {
-		visibility: visible;
+		transition: opacity 0.25s ease-in;
+		opacity: 1;
 	}
 `;
 

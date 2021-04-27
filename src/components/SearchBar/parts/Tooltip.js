@@ -6,21 +6,21 @@ const Tooltip = styled.div`
 	position: absolute;
 	background-color: var(--red);
 	border-radius: 10px;
-	padding: 14px 16px;
+	padding: 12px 16px;
 	font-size: 12px;
 	letter-spacing: 0.6px;
 	line-height: 1.4;
 	top: 132%;
 	left: 9%;
-	visibility: hidden;
+	opacity: 0;
 	width: 192px;
 	&::before {
 		content: "";
 		position: absolute;
-		width: 15px;
-		height: 15px;
+		width: 14px;
+		height: 14px;
 		left: 22%;
-		top: -15px;
+		top: -14px;
 		transform: translate(-50%, 50%) rotate(45deg);
 		background-color: var(--red);
 		/* border-top-left-radius: 2px; */
