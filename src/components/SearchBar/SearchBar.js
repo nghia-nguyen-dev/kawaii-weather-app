@@ -15,14 +15,13 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-
 		fetchCoordinates(searchTerm)
 			.then(location => {
 				pipe(extractLocation, setLocation)(location);
 				return location;
 			})
 			.then(fetchWeatherData)
-			.then(res => pipe(extractWeather, setWeatherData)(res.data))
+			.then(pipe(extractWeather, setWeatherData))
 			.catch(console.log);
 	};
 

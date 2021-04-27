@@ -14,17 +14,7 @@ import {
 	extractCoords,
 } from "utils/helper";
 import { pipe } from "ramda";
-import styled from "styled-components";
-
-const Grid = styled.div`
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	max-width: 970px;
-	gap: 40px 38px;
-	@media (max-width: 985px) {
-		gap: 30px;
-	}
-`;
+import Grid from "components/App/parts/Grid"
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
@@ -35,7 +25,7 @@ const App = () => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
-			.then(res => pipe(extractWeather, setWeatherData)(res.data))
+			.then(pipe(extractWeather, setWeatherData))
 			.catch(console.log);
 	}, []);
 
