@@ -13,7 +13,7 @@ const Tooltip = styled.div`
 	top: 132%;
 	left: 9%;
 	visibility: hidden;
-	width: 172px;
+	width: 192px;
 	&::before {
 		content: "";
 		position: absolute;
