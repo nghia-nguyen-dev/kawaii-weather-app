@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchIcon from "components/SearchBar/SearchIcon";
 import SearchInput from "components/SearchBar/SearchInput";
 import Form from "components/SearchBar/parts/Form";
+import Tooltip from "components/SearchBar/parts/Tooltip";
 import {
 	fetchCoordinates,
 	fetchWeatherData,
@@ -32,6 +33,7 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 				searchTerm={searchTerm}
 				setSearchTerm={setSearchTerm}
 			/>
+			<Tooltip className="Tooltip">For locations in the US, please search by zip.</Tooltip>
 		</Form>
 	);
 };

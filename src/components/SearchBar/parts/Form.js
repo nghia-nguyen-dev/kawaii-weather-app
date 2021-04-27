@@ -10,6 +10,9 @@ const Form = styled.form`
 	@media (max-width: 744px) {
 		width: 100%;
 	}
+	:hover .Tooltip {
+		visibility: visible;
+	}
 `;
 
 export default Form;
