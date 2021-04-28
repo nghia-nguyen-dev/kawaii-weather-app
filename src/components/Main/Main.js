@@ -1,19 +1,9 @@
 import { useState, useEffect } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
-import styled from "styled-components";
 import Units from "components/Units/Units";
 import ErrorMsg from "components/ErrorMsg/ErrorMsg";
 import WeatherInfo from "components/WeatherInfo/WeatherInfo";
-
-const Grid = styled.div`
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	max-width: 970px;
-	gap: 40px 38px;
-	@media (max-width: 985px) {
-		gap: 30px;
-	}
-`;
+import Grid from "components/Main/parts/Grid"
 
 const Main = ({ weatherData, setWeatherData }) => {
 	const [location, setLocation] = useState("");
