@@ -93,3 +93,8 @@ export const extractCoords = ({ coords }) => {
 		lon: coords.longitude,
 	};
 };
+
+export const renderedLocation = ({ city, state, country }) => {
+	if (!city) return null;
+	return `${city}, ${state || country}`;
+};

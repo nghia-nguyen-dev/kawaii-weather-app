@@ -20,18 +20,22 @@ const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
+	const [error, setError] = useState({});
 
+	console.log(error);
+	
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(console.log);
+			.catch(setError);
 	}, []);
 
 	const showContent = (
 		<Grid>
 			<SearchBar
+				setError={setError}
 				setWeatherData={setWeatherData}
 				setLocation={setLocation}
 			/>
@@ -47,12 +51,7 @@ const App = () => {
 	);
 
 	const showPending = (
-		<svg
-			width="435px"
-			height="421px"
-			viewBox="0 0 435 421"
-			version="1.1"
-		>
+		<svg width="435px" height="421px" viewBox="0 0 435 421" version="1.1">
 			<title>rain-cloud</title>
 			<g
 				id="Page-6"
