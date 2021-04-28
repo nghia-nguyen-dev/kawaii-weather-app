@@ -50,7 +50,6 @@ const dayNames = {
 
 const DailyForecast = ({ weatherData, isCelsius }) => {
 	const renderedList = weatherData.daily?.map((temp, index) => {
-		console.log(weatherData);
 		return (
 			<Li>
 				<SubHead config={config}>{getDayName(index)}</SubHead>

@@ -27,13 +27,17 @@ const App = () => {
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
 	const [error, setError] = useState({});
+	const [isLoading, setIsLoading] = useState(true)
 
+	console.log(weatherData.constructor)
+	
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(setError);
+			.catch(setWeatherData)
+			.finally(() => setIsLoading(false))
 	}, []);
 
 	const mainContent = (
@@ -57,7 +61,7 @@ const App = () => {
 		</Grid>
 	);
 
-	const pendingContent = (
+	const loadingImg = (
 		<svg width="435px" height="421px" viewBox="0 0 435 421" version="1.1">
 			<title>rain-cloud</title>
 			<g
@@ -106,7 +110,7 @@ const App = () => {
 
 	return (
 		<>
-			{isEmpty(weatherData) ? pendingContent : mainContent}
+			{isLoading ? loadingImg : mainContent}
 			<BackgroundClouds>
 				<TopCloud />
 				<BottomClouds />

@@ -28,7 +28,7 @@ const SearchBar = ({ setWeatherData, setLocation, setError }) => {
 			})
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(err => setError(err));
+			.catch(setWeatherData);
 	};
 
 	return (
