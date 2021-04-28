@@ -14,6 +14,9 @@ const Form = styled.form`
 		transition: opacity 0.25s ease-in;
 		opacity: 1;
 	}
+	:focus-within .Tooltip {
+		opacity:0;
+	}
 `;
 
 export default Form;
