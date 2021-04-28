@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import SearchBar from "components/SearchBar/SearchBar";
-import Units from "components/Units/Units";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
@@ -11,14 +9,11 @@ import {
 	extractCoords,
 } from "utils/helper";
 import { pipe } from "ramda";
-import Grid from "components/App/parts/Grid";
-import ErrorMsg from "components/ErrorMsg/ErrorMsg";
-import WeatherInfo from "components/WeatherInfo/WeatherInfo";
+
+import Main from "components/Main/Main";
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
-	const [location, setLocation] = useState("");
-	const [isCelsius, setIsCelsius] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 
 	console.log(weatherData);
@@ -31,26 +26,6 @@ const App = () => {
 			.catch(setWeatherData)
 			.finally(() => setIsLoading(false));
 	}, []);
-
-	const Content = (
-		<Grid>
-			<SearchBar
-				setWeatherData={setWeatherData}
-				setLocation={setLocation}
-			/>
-			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
-
-			{weatherData.current ? (
-				<WeatherInfo
-					isCelsius={isCelsius}
-					location={location}
-					weatherData={weatherData}
-				/>
-			) : (
-				<ErrorMsg weatherData={weatherData} />
-			)}
-		</Grid>
-	);
 
 	const loadingImg = (
 		<svg width="435px" height="421px" viewBox="0 0 435 421" version="1.1">
@@ -101,7 +76,14 @@ const App = () => {
 
 	return (
 		<>
-			{isLoading ? loadingImg : Content}
+			{isLoading ? (
+				loadingImg
+			) : (
+				<Main
+					weatherData={weatherData}
+					setWeatherData={setWeatherData}
+				/>
+			)}
 			<BackgroundClouds>
 				<TopCloud />
 				<BottomClouds />
