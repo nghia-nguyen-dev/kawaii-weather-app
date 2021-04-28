@@ -44,23 +44,23 @@ const Flex = styled.div`
 	}
 `;
 
+const renderedLocation = ({ city, state, country }) => {
+	if (!city) return null;
+	return `${city}, ${state || country}`;
+};
+
 const WeatherMain = ({ weatherData, location, isCelsius }) => {
-	const { city, state, country } = location;
+	console.log(location);
 	const temp = weatherData.current?.temp;
 	return (
 		<Div>
-
-			<Location>
-				{city}{location && ","} {state || country}
-			</Location>
+			<Location>{renderedLocation(location)}</Location>
 			<Flex>
 				<WeatherIcon />
 				<BigTemp>{renderedTemp(isCelsius, temp)}</BigTemp>
 			</Flex>
-			
 		</Div>
 	);
 };
-
 
 export default WeatherMain;

@@ -17,7 +17,7 @@ const US = styled.span`
 	/* font-style: italic; */
 `;
 
-const SearchBar = ({ setWeatherData, setLocation }) => {
+const SearchBar = ({ setWeatherData, setLocation, setError }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const handleSubmit = e => {
@@ -29,7 +29,7 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 			})
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(console.log);
+			.catch(err => setError(err));
 	};
 
 	return (
