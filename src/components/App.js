@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
-import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import Units from "components/Units/Units";
-import WeatherMain from "components/WeatherMain/WeatherMain";
-import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
@@ -16,6 +13,7 @@ import {
 import { pipe } from "ramda";
 import Grid from "components/App/parts/Grid";
 import ErrorMsg from "components/ErrorMsg/ErrorMsg";
+import WeatherInfo from "components/WeatherInfo/WeatherInfo";
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
@@ -34,19 +32,7 @@ const App = () => {
 			.finally(() => setIsLoading(false));
 	}, []);
 
-	const weatherInfo = (
-		<>
-			<WeatherMain
-				isCelsius={isCelsius}
-				location={location}
-				weatherData={weatherData}
-			/>
-			<WeatherMetrics weatherData={weatherData} />
-			<DailyForecast weatherData={weatherData} isCelsius={isCelsius} />
-		</>
-	);
-
-	const mainContent = (
+	const Content = (
 		<Grid>
 			<SearchBar
 				setWeatherData={setWeatherData}
@@ -55,7 +41,11 @@ const App = () => {
 			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
 
 			{weatherData.current ? (
-				weatherInfo
+				<WeatherInfo
+					isCelsius={isCelsius}
+					location={location}
+					weatherData={weatherData}
+				/>
 			) : (
 				<ErrorMsg weatherData={weatherData} />
 			)}
@@ -111,7 +101,7 @@ const App = () => {
 
 	return (
 		<>
-			{isLoading ? loadingImg : mainContent}
+			{isLoading ? loadingImg : Content}
 			<BackgroundClouds>
 				<TopCloud />
 				<BottomClouds />
