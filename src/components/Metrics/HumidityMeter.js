@@ -1,7 +1,7 @@
-import {useState} from "react";
-import Container from "components/WeatherMetrics/parts/Container";
-import Fill from "components/WeatherMetrics/parts/Fill";
-import SubHead from "components/WeatherMetrics/parts/SubHead";
+import { useState } from "react";
+import Container from "components/Metrics/parts/Container";
+import Fill from "components/Metrics/parts/Fill";
+import SubHead from "components/Metrics/parts/SubHead";
 
 const HumidityMeter = ({ weatherData }) => {
 	const [onHover, setOnHover] = useState(false);

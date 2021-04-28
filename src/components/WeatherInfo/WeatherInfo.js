@@ -1,5 +1,5 @@
 import Hero from "components/Hero/Hero";
-import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
+import Metrics from "components/Metrics/Metrics";
 import DailyForecast from "components/DailyForecast/DailyForecast";
 
 const WeatherInfo = ({ isCelsius, location, weatherData }) => {
@@ -10,7 +10,7 @@ const WeatherInfo = ({ isCelsius, location, weatherData }) => {
 				location={location}
 				weatherData={weatherData}
 			/>
-			<WeatherMetrics weatherData={weatherData} />
+			<Metrics weatherData={weatherData} />
 			<DailyForecast weatherData={weatherData} isCelsius={isCelsius} />
 		</>
 	);
