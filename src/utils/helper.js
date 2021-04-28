@@ -98,3 +98,15 @@ export const renderedLocation = ({ city, state, country }) => {
 	if (!city) return null;
 	return `${city}, ${state || country}`;
 };
+
+// Create closure
+export const getDay = (function () {
+	let runningCount = new Date().getDay();
+	const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+	return () => {
+		runningCount++;
+		if (days[runningCount] === undefined) runningCount = 0;
+		return days[runningCount];
+	};
+})();
