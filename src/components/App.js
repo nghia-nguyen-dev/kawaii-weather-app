@@ -13,44 +13,29 @@ import {
 	askForPos,
 	extractCoords,
 } from "utils/helper";
-import { isEmpty, pipe } from "ramda";
+import { pipe } from "ramda";
 import Grid from "components/App/parts/Grid";
-import styled from "styled-components";
-import Hero from "components/WeatherMain/parts/Hero"
-
-const ErrorMsg = styled(Hero)`
-	color: var(--orange);
-`;
+import ErrorMsg from "components/ErrorMsg/ErrorMsg";
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
-	const [error, setError] = useState({});
-	const [isLoading, setIsLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(weatherData)
-	
+	console.log(weatherData);
+
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
 			.catch(setWeatherData)
-			.finally(() => setIsLoading(false))
+			.finally(() => setIsLoading(false));
 	}, []);
 
-	const mainContent = (
-		<Grid>
-			<SearchBar
-				setError={setError}
-				setWeatherData={setWeatherData}
-				setLocation={setLocation}
-			/>
-			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
-
-			{}
-
+	const weatherInfo = (
+		<>
 			<WeatherMain
 				isCelsius={isCelsius}
 				location={location}
@@ -58,6 +43,22 @@ const App = () => {
 			/>
 			<WeatherMetrics weatherData={weatherData} />
 			<DailyForecast weatherData={weatherData} isCelsius={isCelsius} />
+		</>
+	);
+
+	const mainContent = (
+		<Grid>
+			<SearchBar
+				setWeatherData={setWeatherData}
+				setLocation={setLocation}
+			/>
+			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
+
+			{weatherData.current ? (
+				weatherInfo
+			) : (
+				<ErrorMsg weatherData={weatherData} />
+			)}
 		</Grid>
 	);
 
