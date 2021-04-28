@@ -29,7 +29,7 @@ const App = () => {
 	const [error, setError] = useState({});
 	const [isLoading, setIsLoading] = useState(true)
 
-	console.log(weatherData.constructor)
+	console.log(weatherData)
 	
 	useEffect(() => {
 		askForPos()
