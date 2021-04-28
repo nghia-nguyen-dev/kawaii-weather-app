@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
-import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import Units from "components/Units/Units";
-import WeatherMain from "components/WeatherMain/WeatherMain";
-import DailyForecast from "components/DailyForecast/DailyForecast";
 import BackgroundClouds from "components/BackgroundClouds/BackgroundCouds";
 import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
@@ -13,51 +10,45 @@ import {
 	askForPos,
 	extractCoords,
 } from "utils/helper";
-import { isEmpty, pipe } from "ramda";
+import { pipe } from "ramda";
 import Grid from "components/App/parts/Grid";
-import styled from "styled-components";
-import Hero from "components/WeatherMain/parts/Hero"
-
-const ErrorMsg = styled(Hero)`
-	color: var(--orange);
-`;
+import ErrorMsg from "components/ErrorMsg/ErrorMsg";
+import WeatherInfo from "components/WeatherInfo/WeatherInfo";
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
-	const [error, setError] = useState({});
-	const [isLoading, setIsLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(weatherData)
-	
+	console.log(weatherData);
+
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
 			.catch(setWeatherData)
-			.finally(() => setIsLoading(false))
+			.finally(() => setIsLoading(false));
 	}, []);
 
-	const mainContent = (
+	const Content = (
 		<Grid>
 			<SearchBar
-				setError={setError}
 				setWeatherData={setWeatherData}
 				setLocation={setLocation}
 			/>
 			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
 
-			{}
-
-			<WeatherMain
-				isCelsius={isCelsius}
-				location={location}
-				weatherData={weatherData}
-			/>
-			<WeatherMetrics weatherData={weatherData} />
-			<DailyForecast weatherData={weatherData} isCelsius={isCelsius} />
+			{weatherData.current ? (
+				<WeatherInfo
+					isCelsius={isCelsius}
+					location={location}
+					weatherData={weatherData}
+				/>
+			) : (
+				<ErrorMsg weatherData={weatherData} />
+			)}
 		</Grid>
 	);
 
@@ -110,7 +101,7 @@ const App = () => {
 
 	return (
 		<>
-			{isLoading ? loadingImg : mainContent}
+			{isLoading ? loadingImg : Content}
 			<BackgroundClouds>
 				<TopCloud />
 				<BottomClouds />

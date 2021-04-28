@@ -1,6 +1,6 @@
-import Container from "components/WeatherMetrics/parts/Container";
-import Fill from "components/WeatherMetrics/parts/Fill";
-import SubHead from "components/WeatherMetrics/parts/SubHead";
+import Container from "components/Metrics/parts/Container";
+import Fill from "components/Metrics/parts/Fill";
+import SubHead from "components/Metrics/parts/SubHead";
 import { multiplier } from "utils/helper";
 import { useState } from "react";
 
