@@ -12,7 +12,7 @@ import {
 import { pipe } from "ramda";
 import styled from "styled-components";
 
-const US = styled.span`
+const Highlight = styled.span`
 	color: var(--warm-white);
 `;
 
@@ -39,7 +39,7 @@ const SearchBar = ({ setWeatherData, setLocation, setError }) => {
 				setSearchTerm={setSearchTerm}
 			/>
 			<Tooltip className="Tooltip">
-				For places in the US, search by <US>city + state + US</US>
+				For places in the US, search by <Highlight>city + state + US</Highlight>
 				<br /> or zipcode alone.
 			</Tooltip>
 		</Form>

@@ -1,16 +1,9 @@
 import { useState, useEffect } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import styled from "styled-components";
-import {
-	fetchWeatherData,
-	extractWeather,
-	askForPos,
-	extractCoords,
-} from "utils/helper";
-import Units from "components/Units/Units"
-import ErrorMsg from "components/ErrorMsg/ErrorMsg"
-import WeatherInfo from "components/WeatherInfo/WeatherInfo"
-import { pipe } from "ramda";
+import Units from "components/Units/Units";
+import ErrorMsg from "components/ErrorMsg/ErrorMsg";
+import WeatherInfo from "components/WeatherInfo/WeatherInfo";
 
 const Grid = styled.div`
 	display: grid;
@@ -22,9 +15,10 @@ const Grid = styled.div`
 	}
 `;
 
-const Main = ({weatherData,setWeatherData}) => {
+const Main = ({ weatherData, setWeatherData }) => {
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
+
 	return (
 		<Grid>
 			<SearchBar
