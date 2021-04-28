@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Hero from "components/WeatherMain/parts/Hero";
+import Hero from "components/Hero/parts/Div";
 
 const Div = styled(Hero)`
 	color: var(--orange);

@@ -1,11 +1,11 @@
-import WeatherMain from "components/WeatherMain/WeatherMain";
+import Hero from "components/Hero/Hero";
 import WeatherMetrics from "components/WeatherMetrics/WeatherMetrics";
 import DailyForecast from "components/DailyForecast/DailyForecast";
 
-const WeatherInfo = ({isCelsius, location, weatherData}) => {
+const WeatherInfo = ({ isCelsius, location, weatherData }) => {
 	return (
 		<>
-			<WeatherMain
+			<Hero
 				isCelsius={isCelsius}
 				location={location}
 				weatherData={weatherData}

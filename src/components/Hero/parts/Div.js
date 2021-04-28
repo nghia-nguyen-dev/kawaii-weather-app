@@ -1,6 +1,6 @@
-const { default: styled } = require("styled-components");
+import styled from "styled-components";
 
-const Hero = styled.div`
+const Div = styled.div`
 	background-color: var(--blue);
 	border-radius: var(--radius-lg);
 	border: var(--border-lg);
@@ -13,4 +13,4 @@ const Hero = styled.div`
 	}
 `;
 
-export default Hero;
+export default Div;
