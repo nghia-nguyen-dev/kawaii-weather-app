@@ -32,28 +32,23 @@ const config = {
 	marginBottom: "12px",
 };
 
-const getDayName = index => {
-	const td = new Date().getDay();
-	const dayNum = td + index + 1;
-	return dayNames[dayNum > 6 ? 0 : dayNum]; // Handle edge case for SUN
-};
+const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-const dayNames = {
-	0: "SUN",
-	1: "MON",
-	2: "TUE",
-	3: "WED",
-	4: "THU",
-	5: "FRI",
-	6: "SAT",
+let runningCount = new Date().getDay();
+
+const getDay = () => {
+	runningCount++;
+	if (days[runningCount] === undefined) {
+		runningCount = 0;
+	}
+	return days[runningCount];
 };
 
 const DailyForecast = ({ weatherData, isCelsius }) => {
 	const renderedList = weatherData.daily?.map((temp, index) => {
-		console.log(weatherData);
 		return (
 			<Li>
-				<SubHead config={config}>{getDayName(index)}</SubHead>
+				<SubHead config={config}>{getDay()}</SubHead>
 				<Temp>{renderedTemp(isCelsius, temp)}</Temp>
 			</Li>
 		);

@@ -15,24 +15,32 @@ import {
 } from "utils/helper";
 import { isEmpty, pipe } from "ramda";
 import Grid from "components/App/parts/Grid";
+import styled from "styled-components";
+import Hero from "components/WeatherMain/parts/Hero"
+
+const ErrorMsg = styled(Hero)`
+	color: var(--orange);
+`;
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [location, setLocation] = useState("");
 	const [isCelsius, setIsCelsius] = useState(false);
 	const [error, setError] = useState({});
+	const [isLoading, setIsLoading] = useState(true)
 
-	console.log(error);
+	console.log(weatherData)
 	
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(setError);
+			.catch(setWeatherData)
+			.finally(() => setIsLoading(false))
 	}, []);
 
-	const showContent = (
+	const mainContent = (
 		<Grid>
 			<SearchBar
 				setError={setError}
@@ -40,6 +48,9 @@ const App = () => {
 				setLocation={setLocation}
 			/>
 			<Units isCelsius={isCelsius} setIsCelsius={setIsCelsius} />
+
+			{}
+
 			<WeatherMain
 				isCelsius={isCelsius}
 				location={location}
@@ -50,7 +61,7 @@ const App = () => {
 		</Grid>
 	);
 
-	const showPending = (
+	const loadingImg = (
 		<svg width="435px" height="421px" viewBox="0 0 435 421" version="1.1">
 			<title>rain-cloud</title>
 			<g
@@ -99,7 +110,7 @@ const App = () => {
 
 	return (
 		<>
-			{isEmpty(weatherData) ? showPending : showContent}
+			{isLoading ? loadingImg : mainContent}
 			<BackgroundClouds>
 				<TopCloud />
 				<BottomClouds />

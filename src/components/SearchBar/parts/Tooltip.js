@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Tooltip = styled.div`
-	color: var(--warm-white);
+	color: black;
 	font-family: Helvetica, Arial, sans-serif;
 	position: absolute;
 	background-color: var(--red);
@@ -14,7 +14,7 @@ const Tooltip = styled.div`
 	left: 9%;
 	opacity: 0;
 	width: 192px;
-	&::before {
+	::before {
 		content: "";
 		position: absolute;
 		width: 14px;
@@ -23,7 +23,7 @@ const Tooltip = styled.div`
 		top: -14px;
 		transform: translate(-50%, 50%) rotate(45deg);
 		background-color: var(--red);
-		/* border-top-left-radius: 2px; */
+		border-top-left-radius: 2px;
 	}
 `;
 

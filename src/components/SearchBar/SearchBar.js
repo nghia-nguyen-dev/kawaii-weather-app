@@ -13,8 +13,7 @@ import { pipe } from "ramda";
 import styled from "styled-components";
 
 const US = styled.span`
-	color: black;
-	/* font-style: italic; */
+	color: var(--warm-white);
 `;
 
 const SearchBar = ({ setWeatherData, setLocation, setError }) => {
@@ -29,7 +28,7 @@ const SearchBar = ({ setWeatherData, setLocation, setError }) => {
 			})
 			.then(fetchWeatherData)
 			.then(pipe(extractWeather, setWeatherData))
-			.catch(err => setError(err));
+			.catch(setWeatherData);
 	};
 
 	return (
@@ -41,7 +40,7 @@ const SearchBar = ({ setWeatherData, setLocation, setError }) => {
 			/>
 			<Tooltip className="Tooltip">
 				For places in the US, search by <US>city + state + US</US>
-				<br /> or zipcode.
+				<br /> or zipcode alone.
 			</Tooltip>
 		</Form>
 	);
