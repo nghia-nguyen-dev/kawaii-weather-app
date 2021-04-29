@@ -15,7 +15,6 @@ const Input = styled.input`
 		color: #adadad;
 		text-transform: none;
 	}
-	
 `;
 
 export default Input;

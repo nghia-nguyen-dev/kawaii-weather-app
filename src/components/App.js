@@ -9,7 +9,6 @@ import {
 	extractCoords,
 } from "utils/helper";
 import { pipe } from "ramda";
-
 import Main from "components/Main/Main";
 
 const App = () => {
@@ -76,9 +75,7 @@ const App = () => {
 
 	return (
 		<>
-			{isLoading ? (
-				loadingImg
-			) : (
+			{!isLoading && (
 				<Main
 					weatherData={weatherData}
 					setWeatherData={setWeatherData}
