@@ -83,7 +83,7 @@ const App = () => {
 			)}
 			<BackgroundClouds>
 				<TopCloud />
-				<BottomClouds />
+				<BottomClouds isLoading={isLoading}/>
 			</BackgroundClouds>
 		</>
 	);

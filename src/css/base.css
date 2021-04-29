@@ -24,14 +24,15 @@ form {
 	animation: 3s slidein infinite alternate;
 }
 
-@keyframes slidein {
-	from {
-		margin-left: 100%;
-		width: 300%;
+@keyframes hover1 {
+	0% {
+		transform: translate(40%, 47%);
+	}
+	50% {
+		transform: translate(40%, 45%);
 	}
 
-	to {
-		margin-left: 0%;
-		width: 100%;
+	100% {
+		transform: translate(40%, 48%);
 	}
 }

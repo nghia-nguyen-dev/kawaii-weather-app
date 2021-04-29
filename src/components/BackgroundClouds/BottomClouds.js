@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Svg = styled.svg`
 	transform: translate(40%, 47%);
@@ -8,11 +8,15 @@ const Svg = styled.svg`
 		z-index: -1;
 		position: absolute;
 	}
+	${p => p.isLoading && css`
+		animation: hover1 5s ease-in-out infinite alternate;
+	`}
 `;
 
-const BottomClouds = () => {
+const BottomClouds = ({ isLoading }) => {
 	return (
 		<Svg
+			isLoading={isLoading}
 			width="1098px"
 			height="1088px"
 			viewBox="0 0 1098 1088"
