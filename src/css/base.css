@@ -36,3 +36,13 @@ form {
 		transform: translate(40%, 48%);
 	}
 }
+
+@keyframes hover2 {
+	0% {
+		top: 0px;
+	}
+
+	100% {
+		top: -10px;
+	}
+}
