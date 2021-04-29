@@ -25,6 +25,7 @@ const Tooltip = styled.div`
 		background-color: var(--red);
 		border-top-left-radius: 2px;
 	}
+	pointer-events:none;
 `;
 
 export default Tooltip;
