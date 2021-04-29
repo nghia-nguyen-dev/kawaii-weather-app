@@ -10,6 +10,7 @@ import {
 } from "utils/helper";
 import { pipe } from "ramda";
 import Main from "components/Main/Main";
+import WhiteCloud from "components/BackgroundClouds/WhiteCloud";
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
@@ -36,6 +37,7 @@ const App = () => {
 			)}
 			<BackgroundClouds>
 				<TopCloud isLoading={isLoading}/>
+				<WhiteCloud/>
 				<BottomClouds isLoading={isLoading}/>
 			</BackgroundClouds>
 		</>
