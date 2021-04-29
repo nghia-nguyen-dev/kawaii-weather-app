@@ -37,7 +37,7 @@ const App = () => {
 			)}
 			<BackgroundClouds>
 				<TopCloud isLoading={isLoading}/>
-				<WhiteCloud/>
+				<WhiteCloud isLoading={isLoading}/>
 				<BottomClouds isLoading={isLoading}/>
 			</BackgroundClouds>
 		</>
