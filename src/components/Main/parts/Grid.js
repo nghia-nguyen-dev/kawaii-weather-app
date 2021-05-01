@@ -8,5 +8,8 @@ const Grid = styled.div`
 	@media (max-width: 985px) {
 		gap: 30px;
 	}
+	@media (min-width: 1600px) {
+		margin: 0 auto;
+	}
 `;
 export default Grid;
