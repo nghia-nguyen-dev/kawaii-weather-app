@@ -8,6 +8,7 @@ import {
 	fetchWeatherData,
 	extractWeather,
 	extractLocation,
+	extractCoords,
 } from "utils/helper";
 import { pipe } from "ramda";
 import styled from "styled-components";
@@ -16,18 +17,21 @@ const Highlight = styled.span`
 	color: var(--warm-white);
 `;
 
-const SearchBar = ({ setWeatherData, setLocation, setError }) => {
+const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		fetchCoordinates(searchTerm)
+			.then(extractLocation)
 			.then(location => {
-				pipe(extractLocation, setLocation)(location);
+				setLocation(location);
 				return location;
 			})
+			.then(extractCoords)
 			.then(fetchWeatherData)
-			.then(pipe(extractWeather, setWeatherData))
+			.then(extractWeather)
+			.then(setWeatherData)
 			.catch(setWeatherData);
 	};
 

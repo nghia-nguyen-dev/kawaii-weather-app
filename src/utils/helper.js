@@ -1,4 +1,4 @@
-import { slice, map, compose, pipe, toLower } from "ramda";
+import { slice, map, compose } from "ramda";
 import axios from "axios";
 
 export const toCelsius = f => ((f - 32) * 5) / 9;
@@ -16,7 +16,7 @@ export const multiplier = 100 / maxWindSpeed;
 const formatStr = location => location.toUpperCase().replaceAll(" ", ",");
 
 export const fetchCoordinates = location => {
-	console.log(formatStr(location))
+	console.log(formatStr(location));
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
 	return axios
 		.get(base, {
@@ -27,7 +27,6 @@ export const fetchCoordinates = location => {
 			},
 		})
 		.then(({ data }) => {
-			// console.log(data);
 			return {
 				city: data[0].name,
 				state: data[0].state,
@@ -42,8 +41,8 @@ export const fetchWeatherData = coordinates => {
 	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
 	return axios.get(base, {
 		params: {
-			lat: coordinates.lat,
-			lon: coordinates.lon,
+			lat: coordinates.latitude,
+			lon: coordinates.longitude,
 			exclude: `minutely,hourly,alerts`,
 			units: "imperial",
 			appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
@@ -51,7 +50,7 @@ export const fetchWeatherData = coordinates => {
 	});
 };
 
-export const extractWeather = ({data}) => {
+export const extractWeather = ({ data }) => {
 	return {
 		current: {
 			temp: data.current.temp,
@@ -72,9 +71,9 @@ export const extractLocation = location => {
 		city: location.city,
 		state: location.state,
 		country: location.country,
-		coord: {
-			lat: location.lat,
-			lon: location.lon,
+		coords: {
+			latitude: location.lat,
+			longitude: location.lon,
 		},
 	};
 };
@@ -88,9 +87,10 @@ export const askForPos = () => {
 };
 
 export const extractCoords = ({ coords }) => {
+	const { latitude, longitude } = coords;
 	return {
-		lat: coords.latitude,
-		lon: coords.longitude,
+		latitude,
+		longitude,
 	};
 };
 
