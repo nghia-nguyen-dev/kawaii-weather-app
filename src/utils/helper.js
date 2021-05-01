@@ -16,7 +16,7 @@ export const multiplier = 100 / maxWindSpeed;
 const formatStr = location => location.toUpperCase().replaceAll(" ", ",");
 
 export const fetchCoordinates = location => {
-	console.log(formatStr(location))
+	console.log(formatStr(location));
 	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
 	return axios
 		.get(base, {
@@ -39,6 +39,7 @@ export const fetchCoordinates = location => {
 };
 
 export const fetchWeatherData = coordinates => {
+	console.log(coordinates);
 	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
 	return axios.get(base, {
 		params: {
@@ -51,7 +52,7 @@ export const fetchWeatherData = coordinates => {
 	});
 };
 
-export const extractWeather = ({data}) => {
+export const extractWeather = ({ data }) => {
 	return {
 		current: {
 			temp: data.current.temp,
@@ -72,7 +73,7 @@ export const extractLocation = location => {
 		city: location.city,
 		state: location.state,
 		country: location.country,
-		coord: {
+		coordinates: {
 			lat: location.lat,
 			lon: location.lon,
 		},
@@ -87,10 +88,11 @@ export const askForPos = () => {
 	});
 };
 
-export const extractCoords = ({ coords }) => {
+export const extractCoords = ({ coordinates }) => {
+	const { lat, lon } = coordinates;
 	return {
-		lat: coords.latitude,
-		lon: coords.longitude,
+		lat,
+		lon,
 	};
 };
 
