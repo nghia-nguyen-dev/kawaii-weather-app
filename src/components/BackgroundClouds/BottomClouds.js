@@ -8,6 +8,10 @@ const Svg = styled.svg`
 		z-index: -1;
 		position: absolute;
 	}
+	@media (min-width: 1600px) {
+		z-index:-1;
+		position:absolute;
+	}
 	${p => p.isLoading && css`
 		animation: hover1 5s ease-in-out infinite alternate;
 	`}

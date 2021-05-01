@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SubHead from "components/shared-parts/SubHead"
+import SubHead from "components/Metrics/parts/SubHead"
 
 const Day = styled(SubHead)`
 	color: var(--warm-white);
