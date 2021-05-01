@@ -3,17 +3,25 @@ import styled, { css } from "styled-components";
 const Svg = styled.svg`
 	position: absolute;
 	left: 25%;
-    opacity: 0;
-    transition: opacity 2s ease-out .1s;
+	opacity: 0;
+	transition: opacity 2s ease-out 0.1s;
 	animation: hover3 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate;
-    ${p => p.isLoading && css`
-        opacity: 1;
-    `}
+	${p =>
+		p.isLoading &&
+		css`
+			opacity: 1;
+		`}
 `;
 
-const WhiteCloud = ({isLoading}) => {
+const WhiteCloud = ({ isLoading }) => {
 	return (
-		<Svg isLoading={isLoading}  width="500px" height="333px" viewBox="0 0 500 333" version="1.1">
+		<Svg
+			isLoading={isLoading}
+			width="500px"
+			height="333px"
+			viewBox="0 0 500 333"
+			version="1.1"
+		>
 			<g
 				id="Page-6"
 				stroke="none"

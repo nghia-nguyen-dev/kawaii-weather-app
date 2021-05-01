@@ -8,7 +8,6 @@ import {
 	askForPos,
 	extractCoords,
 } from "utils/helper";
-import { pipe } from "ramda";
 import Main from "components/Main/Main";
 import WhiteCloud from "components/BackgroundClouds/WhiteCloud";
 
@@ -22,7 +21,8 @@ const App = () => {
 		askForPos()
 			.then(extractCoords)
 			.then(fetchWeatherData)
-			.then(pipe(extractWeather, setWeatherData))
+			.then(extractWeather)
+			.then(setWeatherData)
 			.catch(setWeatherData)
 			.finally(() => setIsLoading(false));
 	}, []);
@@ -36,9 +36,9 @@ const App = () => {
 				/>
 			)}
 			<BackgroundClouds>
-				<TopCloud isLoading={isLoading}/>
-				<WhiteCloud isLoading={isLoading}/>
-				<BottomClouds isLoading={isLoading}/>
+				<TopCloud isLoading={isLoading} />
+				<WhiteCloud isLoading={isLoading} />
+				<BottomClouds isLoading={isLoading} />
 			</BackgroundClouds>
 		</>
 	);
