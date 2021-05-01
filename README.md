@@ -4,10 +4,9 @@ The most kawaii weather app in the entire world. WIP
 
 ## Goals
 
--   Use styled components more and less css. Offload the styling logic from classes to props
+-   Use styled components
 -   Keep components nice and slim
--   Try my best to keep components which are at the same level of abstraction together
--   Found a needed situation where I had to actually create a promise object(usually it is consumed)
+-   Keep components which are at the same level of abstraction together
 
 ## Tech
 
@@ -30,5 +29,3 @@ The most kawaii weather app in the entire world. WIP
 ### Notes/ observations
 
 - Using styled-components forces me to work more with composition and component nesting.
-- Created my first closure to hold the running count to get the name of day.
-- In certain situation I had a hard time figuring out if a component should be a function or the jsx element return from a function.

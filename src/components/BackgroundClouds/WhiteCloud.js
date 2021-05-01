@@ -2,14 +2,18 @@ import styled, { css } from "styled-components";
 
 const Svg = styled.svg`
 	position: absolute;
+	z-index: -2;
 	left: 25%;
+	top:55%;
 	opacity: 0;
 	transition: opacity 2s ease-out 0.1s;
-	animation: hover3 4s cubic-bezier(0.47, 0, 0.745, 0.715) infinite alternate;
+	animation: none;
 	${p =>
 		p.isLoading &&
 		css`
 			opacity: 1;
+			animation: hover3 4s ease-in-out infinite
+				alternate;
 		`}
 `;
 

@@ -9,6 +9,12 @@ const Svg = styled.svg`
 		css`
 			animation: hover2 2s ease-in infinite alternate;
 		`}
+	@media (min-width: 1600px) {
+		position: fixed;
+		left: 50%;
+		width: 500px;
+		transform: translateX(-150%);
+	}
 `;
 
 const TopCloud = ({ isLoading }) => {

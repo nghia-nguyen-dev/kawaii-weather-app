@@ -2,19 +2,37 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const Svg = styled.svg`
-	transform: translate(40%, 47%);
-	@media (max-width: 744px) {
-		transform: translate(-10%, 53%);
-		z-index: -1;
-		position: absolute;
+	transform: translate(40%, 60%);
+	position: absolute;
+	z-index: -1;
+
+	@media (max-width: 768px) {
+		${p =>
+			!p.isLoading &&
+			css`
+				transform: translate(-10%, 53%);
+				z-index: -1;
+				position: absolute;
+			`}
 	}
-	@media (min-width: 1600px) {
-		z-index:-1;
-		position:absolute;
+
+	@media (min-width: 1920px) {
+		${p =>
+			!p.isLoading &&
+			css`
+				margin: 0 auto;
+				display: block;
+				position: static;
+
+				transform: translate(10%, 60%);
+			`}
 	}
-	${p => p.isLoading && css`
-		animation: hover1 5s ease-in-out infinite alternate;
-	`}
+
+	${p =>
+		p.isLoading &&
+		css`
+			animation: hover1 5s ease-in-out infinite alternate;
+		`}
 `;
 
 const BottomClouds = ({ isLoading }) => {
