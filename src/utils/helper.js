@@ -91,14 +91,27 @@ export const renderedLocation = ({ city, state, country }) => {
 	return `${city}, ${state || country}`;
 };
 
-// Create closure
-export const getDay = (function () {
-	let runningCount = new Date().getDay();
-	const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+// export const getDay = index => {
+// 	// SUN index = 3 ----- + 1
+// 	const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-	return () => {
-		runningCount++;
-		if (days[runningCount] === undefined) runningCount = 0;
-		return days[runningCount];
-	};
-})();
+// 	const td = new Date().getDay(); // td = 3/WED
+// 	let pointer = td;
+// 	let counter = index + 1;
+
+// 	while(counter > 0) {
+// 		pointer++
+// 		counter--
+// 		if (pointer > days.length - 1) pointer = 0;
+// 	}
+
+// 	return days[pointer]
+
+// };
+
+export const getDay = index => {
+	const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+	const td = new Date().getDay();
+	const itemWithinArray = days[td + (index + 1)];
+	return itemWithinArray || days[index - td];
+};

@@ -7,6 +7,9 @@ const Flex = styled.div`
 	@media (max-width: 744px) {
 		margin-top: 72px;
 	}
+	@media (min-width: 1600px) {
+		justify-content: space-between;
+	}
 `;
 
 export default Flex;

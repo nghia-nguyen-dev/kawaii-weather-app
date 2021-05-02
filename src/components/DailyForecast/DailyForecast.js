@@ -6,7 +6,7 @@ import Day from "components/DailyForecast/parts/Day";
 
 const DailyForecast = ({ weatherData, isCelsius }) => {
 	const renderedList = weatherData.daily?.map((temp, index) => {
-		const day = getDay();
+		const day = getDay(index);
 		return (
 			<Li key={day}>
 				<Day>{day}</Day>

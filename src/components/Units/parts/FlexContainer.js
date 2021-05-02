@@ -11,6 +11,9 @@ const FlexContainer = styled.div`
 	@media (max-width: 1016px) {
 		grid-column: 4/5;
 	}
+	@media (min-width: 1600px) {
+		width: 100px;
+	}
 `;
 
 export default FlexContainer;

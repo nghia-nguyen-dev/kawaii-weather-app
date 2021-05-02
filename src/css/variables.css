@@ -6,7 +6,7 @@
 	--meter-color: #ffb66d;
 	--warm-white: #f9f1eb;
 	--red: #ff5a64;
-	--dark-blk: #3d3229;
+	--dark-blk: hsl(27, 10%, 30%);
 
 	--border-sm: 4px solid var(--dark-blk);
 	--border-md: 6px solid var(--dark-blk);
@@ -14,7 +14,7 @@
 
 	--font-sm: 12px;
 	--font-md: 48px;
-	--font-lg: 341px;
+	--font-lg: 342px;
 
 	--radius-sm: 8px;
 	--radius-md: 15px;
@@ -23,4 +23,25 @@
 	--letter-spacing-sm: 0.4px;
 
 	--padding-left: 25px;
+
+	--padding-bar: 14px 20px 12px;
+}
+
+@media (min-width: 1600px) {
+	:root {
+		--dark-blk: hsl(27, 10%, 32%);
+		--border-sm: 6px solid var(--dark-blk);
+
+
+		--border-lg: 14px solid var(--dark-blk);
+		--border-md: 10px solid var(--dark-blk);
+
+		--radius-md: 22px;
+		--radius-lg: 40px;
+
+		--font-lg: 480px;
+		--font-sm: 14px;
+
+		--padding-bar: 22px 24px 18px;
+	}
 }

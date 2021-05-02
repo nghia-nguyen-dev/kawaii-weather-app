@@ -12,6 +12,12 @@ const Div = styled.div`
 		gap: 30px;
 		display: none;
 	}
+	@media (min-width: 1600px) {
+		width: 90%;
+		div {
+			margin-bottom: 16px;
+		}
+	}
 `;
 
 const Metrics = ({ weatherData }) => {

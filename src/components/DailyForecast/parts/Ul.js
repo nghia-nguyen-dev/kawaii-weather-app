@@ -14,5 +14,9 @@ const Ul = styled.ul`
 	@media (max-width: 744px) {
 		padding: 38px 52px 32px;
 	}
+	@media (min-width: 1600px) {
+		padding-top: 54px;
+		gap: 70px;
+	}
 `;
 export default Ul;

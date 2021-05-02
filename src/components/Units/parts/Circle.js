@@ -15,6 +15,11 @@ const Circle = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	@media (min-width: 1600px) {
+		font-size: 16px;
+		height: 42px;
+		width: 42px;
+	}
 `;
 
 export default Circle;
