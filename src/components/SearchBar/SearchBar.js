@@ -10,7 +10,6 @@ import {
 	extractLocation,
 	extractCoords,
 } from "utils/helper";
-import { pipe } from "ramda";
 import styled from "styled-components";
 
 const Highlight = styled.span`

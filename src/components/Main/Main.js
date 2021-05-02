@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchBar from "components/SearchBar/SearchBar";
 import Units from "components/Units/Units";
 import ErrorMsg from "components/ErrorMsg/ErrorMsg";

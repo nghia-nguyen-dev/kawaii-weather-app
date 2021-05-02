@@ -16,15 +16,10 @@ export const multiplier = 100 / maxWindSpeed;
 const formatStr = location => location.toUpperCase().replaceAll(" ", ",");
 
 export const fetchCoordinates = location => {
-	console.log(formatStr(location));
-	const base = `http://api.openweathermap.org/geo/1.0/direct?`;
+	const URL = `/.netlify/functions/geo?`;
 	return axios
-		.get(base, {
-			params: {
-				q: formatStr(location),
-				limit: 1,
-				appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
-			},
+		.get(URL, {
+			params: { q: formatStr(location) },
 		})
 		.then(({ data }) => {
 			return {
@@ -38,14 +33,11 @@ export const fetchCoordinates = location => {
 };
 
 export const fetchWeatherData = coordinates => {
-	const base = `https://api.openweathermap.org/data/2.5/onecall?`;
-	return axios.get(base, {
+	const URL = `/.netlify/functions/onecall?`;
+	return axios.get(URL, {
 		params: {
 			lat: coordinates.latitude,
 			lon: coordinates.longitude,
-			exclude: `minutely,hourly,alerts`,
-			units: "imperial",
-			appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
 		},
 	});
 };
