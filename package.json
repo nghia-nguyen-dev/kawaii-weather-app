@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "netlify-cli": "^3.24.3",
     "ramda": "^0.27.1"
   }
 }
