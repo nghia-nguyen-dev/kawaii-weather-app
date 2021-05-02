@@ -11,9 +11,12 @@ const Input = styled.input`
 	padding: var(--padding-bar);
 	width: 100%;
 	::placeholder {
-		font-size: calc(var(--font-sm) + 2px);
+		font-size: var(--font-sm);
 		color: #adadad;
 		text-transform: none;
+	}
+	@media (min-width: 1600px) {
+		padding: 26px 24px 23px;
 	}
 `;
 

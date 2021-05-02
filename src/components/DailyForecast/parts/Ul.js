@@ -15,7 +15,7 @@ const Ul = styled.ul`
 		padding: 38px 52px 32px;
 	}
 	@media (min-width: 1600px) {
-		padding-top: 54px;
+		padding: 54px 74px 46px;
 		gap: 70px;
 	}
 `;

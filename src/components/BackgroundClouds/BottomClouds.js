@@ -17,14 +17,13 @@ const Svg = styled.svg`
 	}
 
 	@media (min-width: 1920px) {
+	
 		${p =>
 			!p.isLoading &&
 			css`
-				margin: 0 auto;
-				display: block;
-				position: static;
-
-				transform: translate(10%, 60%);
+			left: 50%;
+		transform: translate(6%, 60%);
+		z-index: initial;
 			`}
 	}
 

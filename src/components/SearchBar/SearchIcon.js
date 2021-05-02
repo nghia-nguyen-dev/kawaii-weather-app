@@ -1,8 +1,18 @@
 import React, { memo } from "react";
+import styled from "styled-components";
+
+const Svg = styled.svg`
+	@media (min-width: 1600px) {
+		transform: scale(120%) translateY(-51%);
+		transform-origin: top left;
+		right: 34px;
+		opacity: 0.6;
+	}
+`;
 
 const SearchIcon = memo(() => {
 	return (
-		<svg
+		<Svg
 			className="SearchIcon"
 			width="22px"
 			height="22px"
@@ -49,7 +59,7 @@ const SearchIcon = memo(() => {
 					</g>
 				</g>
 			</g>
-		</svg>
+		</Svg>
 	);
 });
 
