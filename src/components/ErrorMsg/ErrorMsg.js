@@ -2,10 +2,15 @@ import styled from "styled-components";
 import Hero from "components/Hero/parts/Div";
 
 const Div = styled(Hero)`
+	max-width: 650px;
 	color: var(--orange);
 	font-size: var(--font-md);
-	padding: 50px;
+	padding: 40px;
 	line-height: 1.1;
+	@media (min-width: 1600px) {
+		padding: 60px;
+		max-width: 980px;
+	}
 `;
 
 const handleMsg = ({ message }) =>

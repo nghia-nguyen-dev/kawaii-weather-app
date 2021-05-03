@@ -8,8 +8,8 @@ const Div = styled.div`
 	div {
 		margin-bottom: 12px;
 	}
-	@media (max-width: 1016px) {
-		gap: 30px;
+	@media (max-width: 1200px) {
+		/* gap: 30px; */
 		display: none;
 	}
 	@media (min-width: 1600px) {

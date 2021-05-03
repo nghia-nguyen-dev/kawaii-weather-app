@@ -8,11 +8,6 @@ body {
 	padding: 200px;
 }
 
-form {
-	position: relative;
-	width: max-content;
-}
-
 .SearchIcon {
 	position: absolute;
 	top: 50%;

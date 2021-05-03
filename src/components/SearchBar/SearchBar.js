@@ -13,7 +13,8 @@ import {
 import styled from "styled-components";
 
 const Highlight = styled.span`
-	color: var(--warm-white);
+	color: var(--dark-blk);
+	font-weight:bold;
 `;
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
@@ -42,8 +43,7 @@ const SearchBar = ({ setWeatherData, setLocation }) => {
 				setSearchTerm={setSearchTerm}
 			/>
 			<Tooltip className="Tooltip">
-				For places in the US, search by <Highlight>city + state + US</Highlight>
-				<br /> or zipcode alone.
+				For places in the US, search by <Highlight>city + state + US</Highlight> or zipcode alone.
 			</Tooltip>
 		</Form>
 	);

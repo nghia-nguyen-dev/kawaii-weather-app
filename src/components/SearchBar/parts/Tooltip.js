@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Tooltip = styled.div`
-	color: black;
+	color: white;
 	font-family: Helvetica, Arial, sans-serif;
 	position: absolute;
 	background-color: var(--red);
