@@ -8,23 +8,23 @@
 	--red: #ff5a64;
 	--dark-blk: hsl(27, 10%, 30%);
 
-	--border-sm: 4px solid var(--dark-blk);
-	--border-md: 6px solid var(--dark-blk);
-	--border-lg: 8px solid var(--dark-blk);
+	--border-sm: 5px solid var(--dark-blk);
+	--border-md: 8px solid var(--dark-blk);
+	--border-lg: 11px solid var(--dark-blk);
 
 	--font-sm: 12px;
 	--font-md: 48px;
 	--font-lg: 342px;
 
 	--radius-sm: 8px;
-	--radius-md: 15px;
+	--radius-md: 19px;
 	--radius-lg: 35px;
 
 	--letter-spacing-sm: 0.4px;
 
 	--padding-left: 25px;
 
-	--padding-bar: 14px 20px 12px;
+	--padding-bar: 16px 20px 14px;
 }
 
 @media (min-width: 1600px) {
