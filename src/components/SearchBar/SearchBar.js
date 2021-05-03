@@ -3,6 +3,7 @@ import SearchIcon from "components/SearchBar/SearchIcon";
 import SearchInput from "components/SearchBar/SearchInput";
 import Form from "components/SearchBar/parts/Form";
 import Tooltip from "components/SearchBar/parts/Tooltip";
+import Highlight from "components/SearchBar/parts/Highlight";
 import {
 	fetchCoordinates,
 	fetchWeatherData,
@@ -10,12 +11,8 @@ import {
 	extractLocation,
 	extractCoords,
 } from "utils/helper";
-import styled from "styled-components";
 
-const Highlight = styled.span`
-	color: black;
-	font-style: italic;
-`;
+
 
 const SearchBar = ({ setWeatherData, setLocation }) => {
 	const [searchTerm, setSearchTerm] = useState("");
