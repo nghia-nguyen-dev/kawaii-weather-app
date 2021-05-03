@@ -16,7 +16,7 @@ const Input = styled.input`
 		text-transform: none;
 	}
 	@media (min-width: 1600px) {
-		padding: 26px 24px 23px;
+		/* padding: 26px 24px 23px; */
 	}
 `;
 

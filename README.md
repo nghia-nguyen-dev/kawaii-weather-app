@@ -1,6 +1,8 @@
 # Weather App
 
-The most kawaii weather app in the entire world. WIP
+The most kawaii weather app in the entire world.
+
+[**VIEW DEMO**](https://quirky-cray-e4f6c1.netlify.app)
 
 ## Goals
 
