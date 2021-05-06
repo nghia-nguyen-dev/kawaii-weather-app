@@ -15,6 +15,7 @@ The most kawaii weather app in the entire world.
 
 -   Update weather icon
 -   Retry button to start up Geolocation API???
+-   responsive down to mobile view
 
 ## Goals
 
