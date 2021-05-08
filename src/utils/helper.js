@@ -97,3 +97,7 @@ export const getDay = index => {
 	const withinArray = days[td + (index + 1)];
 	return withinArray || days[td + index - (days.length - 1)];
 };
+
+const getWeatherIcon = weatherID => {
+	
+}

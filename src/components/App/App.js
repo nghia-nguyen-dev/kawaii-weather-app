@@ -15,6 +15,8 @@ const App = () => {
 	const [weatherData, setWeatherData] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 
+	console.log(weatherData)
+
 	useEffect(() => {
 		askForPos()
 			.then(extractCoords)
