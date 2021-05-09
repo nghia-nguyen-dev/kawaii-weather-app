@@ -43,14 +43,16 @@ export const fetchWeatherData = coordinates => {
 };
 
 export const extractWeather = ({ data }) => {
+	const {temp, clouds, humidity, wind_speed: windSpeed, weather} = data.current;
+
 	return {
 		current: {
-			temp: data.current.temp,
-			clouds: data.current.clouds,
-			humidity: data.current.humidity,
-			windSpeed: data.current.wind_speed,
-			weatherID: data.current.weather[0].id,
-			icon: data.current.weather[0].icon,
+			temp,
+			clouds,
+			humidity,
+			windSpeed,
+			weatherID: weather[0].id,
+			main: weather[0].main.toLowerCase(),
 		},
 		daily: compose(
 			map(day => day.temp.day),
