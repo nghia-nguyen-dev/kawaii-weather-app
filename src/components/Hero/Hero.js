@@ -11,7 +11,7 @@ const Hero = ({ weatherData, location, isCelsius }) => {
 		<Div>
 			<Location>{renderedLocation(location)}</Location>
 			<Flex>
-				<WeatherIcon />
+				<WeatherIcon weatherData={weatherData}/>
 				<BigTemp>{renderedTemp(isCelsius, temp)}</BigTemp>
 			</Flex>
 		</Div>

@@ -50,6 +50,7 @@ export const extractWeather = ({ data }) => {
 			humidity: data.current.humidity,
 			windSpeed: data.current.wind_speed,
 			weatherID: data.current.weather[0].id,
+			icon: data.current.weather[0].icon,
 		},
 		daily: compose(
 			map(day => day.temp.day),
