@@ -1,6 +1,5 @@
 # Weather App
-
-The most kawaii weather app in the entire world.
+Often times I find myself checking the weather through google. But then I wanted to make my own. Introducing the most kawaii weather app in the entire world.
 
 [**VIEW DEMO**](https://quirky-cray-e4f6c1.netlify.app)
 
@@ -10,6 +9,7 @@ The most kawaii weather app in the entire world.
 -   Choose temperature units
 -   On hover see more details about weather metrics
 -   Handle different error message (for example user deny location or fetch error)
+-   Climacons by Adam Whitcroft via [the noun project](https://thenounproject.com/adamwhitcroft/collection/climacons/)
 
 ## In progress
 
