@@ -43,7 +43,13 @@ export const fetchWeatherData = coordinates => {
 };
 
 export const extractWeather = ({ data }) => {
-	const {temp, clouds, humidity, wind_speed: windSpeed, weather} = data.current;
+	const {
+		temp,
+		clouds,
+		humidity,
+		wind_speed: windSpeed,
+		weather,
+	} = data.current;
 
 	return {
 		current: {

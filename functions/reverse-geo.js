@@ -5,7 +5,7 @@ const handler = async function (event) {
 	// apply our function to the queryStringParameters and assign it to a variable
 	const { lat, lon } = event.queryStringParameters;
 	// Get env var values defined in our Netlify site UI
-	console.log(typeof lat)
+	
 	// TODO: customize your URL and API keys set in the Netlify Dashboard
 	// this is secret too, your frontend won't see this
 	const { REACT_APP_OPEN_WEATHER_KEY } = process.env;
@@ -15,7 +15,7 @@ const handler = async function (event) {
 		const { data } = await axios.get(URL, {
 			params: {
 				lat,
-                lon,
+				lon,
 				limit: 1,
 				appid: REACT_APP_OPEN_WEATHER_KEY,
 			},
