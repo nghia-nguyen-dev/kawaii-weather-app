@@ -122,3 +122,8 @@ export const getDay = index => {
 	const withinArray = days[td + (index + 1)];
 	return withinArray || days[td + index - (days.length - 1)];
 };
+
+export const isDayTime = () => {
+	const hours = new Date().getHours();
+	return hours > 6 && hours < 20;
+};
