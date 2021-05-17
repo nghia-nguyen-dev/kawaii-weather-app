@@ -3,18 +3,19 @@ const axios = require("axios");
 
 const handler = async function (event) {
 	// apply our function to the queryStringParameters and assign it to a variable
-	const { q } = event.queryStringParameters;
+	const { lat, lon } = event.queryStringParameters;
 	// Get env var values defined in our Netlify site UI
-
+	console.log(typeof lat)
 	// TODO: customize your URL and API keys set in the Netlify Dashboard
 	// this is secret too, your frontend won't see this
 	const { REACT_APP_OPEN_WEATHER_KEY } = process.env;
-	const URL = `http://api.openweathermap.org/geo/1.0/direct?`;
+	const URL = `http://api.openweathermap.org/geo/1.0/reverse?`;
 
 	try {
 		const { data } = await axios.get(URL, {
 			params: {
-				q,
+				lat,
+                lon,
 				limit: 1,
 				appid: REACT_APP_OPEN_WEATHER_KEY,
 			},

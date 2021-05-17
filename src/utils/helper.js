@@ -36,8 +36,8 @@ export const fetchWeatherData = coordinates => {
 	const URL = `/.netlify/functions/onecall?`;
 	return axios.get(URL, {
 		params: {
-			lat: coordinates.latitude,
-			lon: coordinates.longitude,
+			lat: coordinates.lat,
+			lon: coordinates.lon,
 		},
 	});
 };
@@ -67,8 +67,8 @@ export const extractLocation = location => {
 		state: location.state,
 		country: location.country,
 		coords: {
-			latitude: location.lat,
-			longitude: location.lon,
+			lat: location.lat,
+			lon: location.lon,
 		},
 	};
 };
@@ -82,10 +82,9 @@ export const askForPos = () => {
 };
 
 export const extractCoords = ({ coords }) => {
-	const { latitude, longitude } = coords;
 	return {
-		latitude,
-		longitude,
+		lat: coords.latitude,
+		lon: coords.longitude,
 	};
 };
 

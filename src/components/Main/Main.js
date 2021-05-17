@@ -5,8 +5,7 @@ import ErrorMsg from "components/ErrorMsg/ErrorMsg";
 import WeatherInfo from "components/WeatherInfo/WeatherInfo";
 import Grid from "components/Main/parts/Grid"
 
-const Main = ({ weatherData, setWeatherData }) => {
-	const [location, setLocation] = useState("");
+const Main = ({ weatherData, setWeatherData, location, setLocation }) => {
 	const [isCelsius, setIsCelsius] = useState(false);
 
 	return (
