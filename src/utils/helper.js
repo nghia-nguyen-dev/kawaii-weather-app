@@ -42,6 +42,23 @@ export const fetchWeatherData = coordinates => {
 	});
 };
 
+export const fetchLocation = ({ lat, lon }) => {
+	const URL = `/.netlify/functions/reverse-geo?`;
+	return axios
+		.get(URL, {
+			params: { lat, lon },
+		})
+		.then(({ data }) => {
+			return {
+				city: data[0].name,
+				state: data[0].state,
+				country: data[0].country,
+				lat: data[0].lat,
+				lon: data[0].lon,
+			};
+		});
+};
+
 export const extractWeather = ({ data }) => {
 	const {
 		temp,

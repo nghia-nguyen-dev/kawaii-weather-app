@@ -4,31 +4,13 @@ import TopCloud from "components/BackgroundClouds/TopCloud";
 import BottomClouds from "components/BackgroundClouds/BottomClouds";
 import {
 	fetchWeatherData,
+	fetchLocation,
 	extractWeather,
 	askForPos,
 	extractCoords,
 } from "utils/helper";
 import Main from "components/Main/Main";
 import WhiteCloud from "components/BackgroundClouds/WhiteCloud";
-
-import axios from "axios";
-
-const fetchLocation = ({ lat, lon }) => {
-	const URL = `/.netlify/functions/reverse-geo?`;
-	return axios
-		.get(URL, {
-			params: { lat, lon },
-		})
-		.then(({ data }) => {
-			return {
-				city: data[0].name,
-				state: data[0].state,
-				country: data[0].country,
-				lat: data[0].lat,
-				lon: data[0].lon,
-			};
-		});
-};
 
 const App = () => {
 	const [weatherData, setWeatherData] = useState({});
