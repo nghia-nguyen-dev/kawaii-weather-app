@@ -60,6 +60,7 @@ export const fetchLocation = ({ lat, lon }) => {
 };
 
 export const extractWeather = ({ data }) => {
+
 	const {
 		temp,
 		clouds,
@@ -106,8 +107,8 @@ export const askForPos = () => {
 
 export const extractCoords = ({ coords }) => {
 	return {
-		lat: coords.latitude,
-		lon: coords.longitude,
+		lat: coords.lat || coords.latitude,
+		lon: coords.lon || coords.longitude,
 	};
 };
 
