@@ -5,8 +5,8 @@ export const Container = styled.div`
 	border: var(--border-md);
 	border-radius: var(--radius-md);
 	padding: var(--padding-bar);
-	:hover > div {
-		background-color: var(--light-blue);
+	:hover {
+		border-color: var(--warm-white);
 	}
 `;
 
