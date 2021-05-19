@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Input = styled.input`
 	font-size: var(--font-sm);
-	font-family: "Proxima Soft";
+	font-family: "GT Maru";
 	color: var(--dark-blk);
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-sm);
