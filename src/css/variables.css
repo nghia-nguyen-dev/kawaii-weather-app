@@ -20,7 +20,7 @@
 	--radius-md: 19px;
 	--radius-lg: 35px;
 
-	--letter-spacing-sm: 0.4px;
+	--letter-spacing-sm: 0.2px;
 
 	--padding-left: 25px;
 
@@ -43,6 +43,6 @@
 		--font-md: 72px;
 		--font-sm: 14px;
 
-		--padding-bar: 22px 24px 18px;
+		--padding-bar: 22px 24px 20px;
 	}
 }

@@ -11,7 +11,7 @@ const BigTemp = styled.h1`
 		line-height: 197px;
 	}
 	@media (min-width: 1600px) {
-		line-height: 362px;
+		line-height: 375px;
 	}
 `;
 export default BigTemp;
